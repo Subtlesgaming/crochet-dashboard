@@ -1,30 +1,19 @@
 import { escapeHtml, makeTextFilter, makeSelect } from '../ui.js';
-import { getCurrentUser, onAuthChange, signOutUser } from '../trackerAuth.js';
-import { renderLogin } from './login.js';
+import { getCurrentUser, signOutUser } from '../trackerAuth.js';
 import { listInventoryItems, addInventoryItem, updateInventoryItem, deleteInventoryItem } from '../trackerData.js';
 
 const CATEGORIES = ['Mini/Keychain', 'Small', 'Medium', 'Large', 'Custom/Commission'];
 
-let unsubscribeAuth = null;
 let editingId = null;
 
 export function cleanup() {
-  if (unsubscribeAuth) { unsubscribeAuth(); unsubscribeAuth = null; }
   editingId = null;
 }
 
+// Auth is guaranteed by this point -- app.js's router gates every route
+// behind sign-in before any view renders, so no per-view check is needed.
 export function render(container, data) {
-  unsubscribeAuth = onAuthChange(() => renderForUser(container, data));
-  renderForUser(container, data);
-}
-
-function renderForUser(container, data) {
-  const user = getCurrentUser();
-  if (!user) {
-    renderLogin(container, { title: 'Inventory' });
-    return;
-  }
-  renderInventoryPage(container, data, user);
+  renderInventoryPage(container, data, getCurrentUser());
 }
 
 function itemFormHtml(item) {

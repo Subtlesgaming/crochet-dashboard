@@ -1212,6 +1212,24 @@ h3 {
 .tracker-header-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .tracker-signed-in { font-size: 12.5px; color: var(--text-faint); }
 
+/* Whole-site login gate (body.gate-active, set by app.js's router while
+   signed out or still resolving the session) -- hides all site chrome and
+   centers the sign-in form full-viewport instead of showing it inline. */
+body.gate-active .sidebar,
+body.gate-active #mobile-topbar,
+body.gate-active #ticker { display: none; }
+
+.login-gate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
+}
+.login-gate h1 { margin-bottom: 24px; }
+.login-gate .login-panel { width: 100%; text-align: left; }
+
 .login-panel { max-width: 420px; }
 
 .tracker-form, .login-form { display: flex; flex-direction: column; gap: 14px; margin-top: 14px; }

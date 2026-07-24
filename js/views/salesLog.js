@@ -1,30 +1,19 @@
 import { escapeHtml, makeSelect } from '../ui.js';
-import { getCurrentUser, onAuthChange, signOutUser } from '../trackerAuth.js';
-import { renderLogin } from './login.js';
+import { getCurrentUser, signOutUser } from '../trackerAuth.js';
 import { listSales, addSale, updateSale, deleteSale, listInventoryItems } from '../trackerData.js';
 
 const PLATFORMS = ['In-Person', 'Etsy', 'Instagram/DM', 'Other'];
 
-let unsubscribeAuth = null;
 let editingId = null;
 
 export function cleanup() {
-  if (unsubscribeAuth) { unsubscribeAuth(); unsubscribeAuth = null; }
   editingId = null;
 }
 
+// Auth is guaranteed by this point -- app.js's router gates every route
+// behind sign-in before any view renders, so no per-view check is needed.
 export function render(container, data) {
-  unsubscribeAuth = onAuthChange(() => renderForUser(container, data));
-  renderForUser(container, data);
-}
-
-function renderForUser(container, data) {
-  const user = getCurrentUser();
-  if (!user) {
-    renderLogin(container, { title: 'Sales Log' });
-    return;
-  }
-  renderSalesPage(container, data, user);
+  renderSalesPage(container, data, getCurrentUser());
 }
 
 function saleFormHtml(sale, eventNames, itemNames) {

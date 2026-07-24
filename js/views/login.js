@@ -1,44 +1,47 @@
-import { escapeHtml } from '../ui.js';
 import { signIn } from '../trackerAuth.js';
 import { isFirebaseConfigured } from '../firebaseConfig.js';
 
 /**
- * Renders a sign-in form into `container` and calls `onSignedIn()` once auth
- * succeeds (the caller re-renders its own view in response). Shared by both
- * Tracker pages so signing in on one immediately unlocks the other too.
+ * Renders a full-site sign-in gate into `container`. Used by app.js's
+ * router as a global gate in front of every route -- not page-specific
+ * anymore, so it doesn't take a title/copy per caller.
  */
-export function renderLogin(container, { title = 'Sign In' } = {}) {
+export function renderLogin(container) {
   if (!isFirebaseConfigured) {
     container.innerHTML = `
-      <h1>${escapeHtml(title)}</h1>
-      <section class="panel panel-warning">
-        <h2 class="warning-heading">Tracker not configured yet</h2>
-        <p class="card-note">This section needs a Firebase project connected before it'll work --
-          fill in <code>js/firebaseConfig.js</code> with your project's web config
-          (Firebase Console &rarr; Project Settings &rarr; Your apps), then reload.</p>
-      </section>
+      <div class="login-gate">
+        <h1>Hella Bella Dashboard</h1>
+        <section class="panel panel-warning login-panel">
+          <h2 class="warning-heading">Not configured yet</h2>
+          <p class="card-note">This dashboard needs a Firebase project connected before it'll work --
+            fill in <code>js/firebaseConfig.js</code> with your project's web config
+            (Firebase Console &rarr; Project Settings &rarr; Your apps), then reload.</p>
+        </section>
+      </div>
     `;
     return;
   }
 
   container.innerHTML = `
-    <h1>${escapeHtml(title)}</h1>
-    <section class="panel login-panel">
-      <p class="meta-note meta-note-tight">This section holds real inventory and sales figures, so it's kept
-        signed out by default -- sign in with the one account set up for this dashboard.</p>
-      <form id="login-form" class="login-form">
-        <label class="filter-field" for="login-email">
-          <span>Email</span>
-          <input type="email" id="login-email" required autocomplete="username" />
-        </label>
-        <label class="filter-field" for="login-password">
-          <span>Password</span>
-          <input type="password" id="login-password" required autocomplete="current-password" />
-        </label>
-        <button type="submit" class="login-submit">Sign In</button>
-        <p id="login-error" class="login-error" hidden></p>
-      </form>
-    </section>
+    <div class="login-gate">
+      <h1>Hella Bella Dashboard</h1>
+      <section class="panel login-panel">
+        <p class="meta-note meta-note-tight">This dashboard is private -- sign in with the one account
+          set up for it.</p>
+        <form id="login-form" class="login-form">
+          <label class="filter-field" for="login-email">
+            <span>Email</span>
+            <input type="email" id="login-email" required autocomplete="username" />
+          </label>
+          <label class="filter-field" for="login-password">
+            <span>Password</span>
+            <input type="password" id="login-password" required autocomplete="current-password" />
+          </label>
+          <button type="submit" class="login-submit">Sign In</button>
+          <p id="login-error" class="login-error" hidden></p>
+        </form>
+      </section>
+    </div>
   `;
 
   const form = container.querySelector('#login-form');
@@ -54,6 +57,8 @@ export function renderLogin(container, { title = 'Sign In' } = {}) {
     submitBtn.textContent = 'Signing in...';
     try {
       await signIn(email, password);
+      // No manual re-render here -- the caller's onAuthChange subscription
+      // (app.js's router) reacts to the resulting auth-state change itself.
     } catch (err) {
       errorEl.textContent = 'Sign-in failed -- check the email and password and try again.';
       errorEl.hidden = false;
