@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hella Bella Dashboard</title>
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#09070f" />
+<link rel="icon" href="icons/icon-192.png" />
+<link rel="apple-touch-icon" href="icons/icon-192.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Hella Bella" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <div id="mobile-backdrop" class="mobile-backdrop"></div>
+
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-brand">
+        <div class="sidebar-brand-bg"></div>
+        <div class="sidebar-brand-scrim"></div>
+        <div class="sidebar-brand-inner">
+          <div class="brand-row">
+            <div class="brand-logo"><span></span><span></span></div>
+            <div class="brand-wordmark">Hella Bella</div>
+            <span class="cancer-glyph" title="Cancer zodiac symbol">
+              <svg width="22" height="16" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" role="img" aria-label="Cancer zodiac symbol">
+                <circle cx="7" cy="10" r="4"/>
+                <path d="M7 6 C 7 2, 13 2, 13 6"/>
+                <circle cx="17" cy="6" r="4"/>
+                <path d="M17 10 C 17 14, 11 14, 11 10"/>
+              </svg>
+            </span>
+          </div>
+          <div class="brand-tagline">@darksundesigns &middot; convention &amp; craft intelligence</div>
+        </div>
+      </div>
+
+      <div class="moon-phase-strip">
+        <span class="phase-new"></span>
+        <span class="phase-1"></span>
+        <span class="phase-2"></span>
+        <span class="phase-3"></span>
+        <span class="phase-full"></span>
+        <span class="phase-4"></span>
+        <span class="phase-5"></span>
+      </div>
+      <div class="scallop-divider"></div>
+
+      <div class="sidebar-search">
+        <input type="search" id="global-search" placeholder="Search the archive..." autocomplete="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="search-results" />
+        <div id="search-results" class="search-results" role="listbox" hidden></div>
+      </div>
+
+      <nav id="sidebar-nav" class="sidebar-nav"></nav>
+    </aside>
+
+    <main class="main-area">
+      <div id="mobile-topbar" class="mobile-topbar">
+        <button id="nav-toggle" class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="mobile-wordmark">Hella Bella</div>
+      </div>
+
+      <a id="ticker" class="ticker" href="#/conventions" hidden>
+        <span class="ticker-icon"><span></span><span></span></span>
+        <span id="ticker-text" class="ticker-text"></span>
+      </a>
+      <div class="scallop-divider-thin"></div>
+
+      <div id="content" class="content">
+        <p class="loading-note">Summoning the archive&hellip;</p>
+      </div>
+
+      <footer class="site-footer">
+        <p>Personal research tool &middot; data lives in <code>data/dashboard_data.json</code></p>
+      </footer>
+    </main>
+  </div>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

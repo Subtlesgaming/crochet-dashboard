@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: inherit; }
+    @keyframes hb-fade-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</helmet>
+
+<sc-if value="{{ isLoading }}" hint-placeholder-val="{{ true }}">
+  <div style="width:100vw; height:100vh; display:flex; align-items:center; justify-content:center; background:oklch(0.14 0.02 300); font-family:'Cinzel',serif; color:oklch(0.7 0.05 90); font-size:20px; letter-spacing:0.06em;">
+    Summoning the archive&hellip;
+  </div>
+</sc-if>
+
+<sc-if value="{{ isReady }}" hint-placeholder-val="{{ false }}">
+<div style="display:flex; width:100vw; height:100vh; background:radial-gradient(ellipse 140% 90% at 50% 0%, oklch(0.55 0.06 235 / 0.4), transparent 72%), radial-gradient(ellipse 120% 85% at 12% 105%, oklch(0.5 0.07 250 / 0.28), transparent 75%), radial-gradient(ellipse 110% 75% at 90% 55%, oklch(0.55 0.05 220 / 0.22), transparent 72%), linear-gradient(oklch(0.13 0.018 295 / 0.78), oklch(0.13 0.018 295 / 0.86)), center / cover no-repeat url('assets/moon-lake.jpg'); font-family:'Manrope',sans-serif; overflow:hidden;">
+
+  <div style="{{ backdropStyle }}" onClick="{{ closeMobileNav }}"></div>
+
+  <aside style="{{ sidebarStyle }}">
+    <div style="position:relative; padding:26px 22px 16px 22px; overflow:hidden;">
+      <div style="position:absolute; inset:0; opacity:0.28;">
+        <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hb-sidebar-bg" src="assets/moon-trees.jpg" shape="rect" placeholder="Moon over calm water" style="width:100%; height:100%; background:oklch(0.32 0.04 250 / 0.4); color:oklch(0.88 0.03 250);"></x-import>
+      </div>
+      <div style="position:absolute; inset:0; background:linear-gradient(180deg, oklch(0.135 0.02 300 / 0.55) 0%, oklch(0.17 0.025 300) 88%);"></div>
+      <div style="position:relative;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="position:relative; width:26px; height:26px; flex-shrink:0;">
+          <div style="position:absolute; inset:0; border-radius:50%; background:oklch(0.88 0.03 250);"></div>
+          <div style="position:absolute; top:-2px; left:6px; width:26px; height:26px; border-radius:50%; background:oklch(0.17 0.025 300);"></div>
+        </div>
+        <div style="font-family:'Cinzel',serif; font-weight:700; font-size:21px; letter-spacing:0.03em; color:oklch(0.95 0.015 85);">Hella Bella</div>
+        <span title="Cancer zodiac symbol" style="display:inline-flex; align-items:center; margin-left:4px; flex-shrink:0; color:oklch(0.94 0.02 250);">
+          <svg width="22" height="16" viewBox="0 0 24 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" role="img" aria-label="Cancer zodiac symbol">
+            <circle cx="7" cy="10" r="4"/>
+            <path d="M7 6 C 7 2, 13 2, 13 6"/>
+            <circle cx="17" cy="6" r="4"/>
+            <path d="M17 10 C 17 14, 11 14, 11 10"/>
+          </svg>
+        </span>
+      </div>
+      <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:14px; color:oklch(0.62 0.03 280); margin-top:4px; padding-left:36px;">@darksundesigns &middot; convention &amp; craft intelligence</div>
+      </div>
+    </div>
+
+    <div style="display:flex; gap:6px; padding:0 22px 16px 22px;">
+      <span style="width:10px; height:10px; border-radius:50%; border:1px solid oklch(0.88 0.03 250 / 0.55); background:linear-gradient(90deg, oklch(0.88 0.03 250) 0%, transparent 0%);"></span>
+      <span style="width:10px; height:10px; border-radius:50%; border:1px solid oklch(0.88 0.03 250 / 0.55); background:linear-gradient(90deg, oklch(0.88 0.03 250) 22%, transparent 22%);"></span>
+      <span style="width:10px; height:10px; border-radius:50%; border:1px solid oklch(0.88 0.03 250 / 0.55); background:linear-gradient(90deg, oklch(0.88 0.03 250) 45%, transparent 45%);"></span>
+      <span style="width:10px; height:10px; border-radius:50%; border:1px solid oklch(0.88 0.03 250 / 0.55); background:linear-gradient(90deg, oklch(0.88 0.03 250) 68%, transparent 68%);"></span>
+      <span style="width:10px; height:10px; border-radius:50%; border:1px solid oklch(0.88 0.03 250 / 0.7); background:oklch(0.88 0.03 250);"></span>
+      <span style="width:10px; height:10px; border-radius:50%; border:1px solid oklch(0.88 0.03 250 / 0.55); background:linear-gradient(270deg, oklch(0.88 0.03 250) 68%, transparent 68%);"></span>
+      <span style="width:10px; height:10px; border-radius:50%; border:1px solid oklch(0.88 0.03 250 / 0.55); background:linear-gradient(270deg, oklch(0.88 0.03 250) 30%, transparent 30%);"></span>
+    </div>
+    <div style="height:6px; background-image:radial-gradient(circle at 8px -3px, transparent 7px, oklch(0.34 0.045 290 / 0.4) 8px); background-size:16px 8px; background-repeat:repeat-x; margin-bottom:2px;"></div>
+
+    <div style="padding:16px 18px; position:relative;">
+      <input
+        type="search"
+        placeholder="Search the archive..."
+        value="{{ searchQuery }}"
+        onInput="{{ onSearchInput }}"
+        style="width:100%; background:oklch(0.25 0.032 296); border:1px solid oklch(0.34 0.045 290 / 0.5); border-radius:8px; padding:10px 12px; font-family:'Manrope',sans-serif; font-size:13.5px; color:oklch(0.9 0.015 85); outline:none;"
+      />
+      <sc-if value="{{ searchActive }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute; left:18px; right:18px; top:56px; z-index:60; background:oklch(0.25 0.032 296); border:1px solid oklch(0.4 0.06 290); border-radius:10px; box-shadow:0 12px 32px oklch(0.05 0 0 / 0.55); max-height:360px; overflow-y:auto; animation:hb-fade-in 0.12s ease;">
+          <sc-for list="{{ searchResults }}" as="res" hint-placeholder-count="3">
+            <div onClick="{{ res.go }}" style="padding:11px 14px; border-bottom:1px solid oklch(0.34 0.045 290 / 0.3); cursor:pointer;">
+              <div style="font-size:10.5px; text-transform:uppercase; letter-spacing:0.06em; color:oklch(0.7 0.13 300); font-weight:700;">{{ res.section }}</div>
+              <div style="font-size:13.5px; color:oklch(0.92 0.015 85); margin-top:2px;">{{ res.title }}</div>
+            </div>
+          </sc-for>
+          <sc-if value="{{ searchEmpty }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:14px; font-size:13px; color:oklch(0.55 0.02 280); font-style:italic; font-family:'Cormorant Garamond',serif;">No matches in the archive.</div>
+          </sc-if>
+        </div>
+      </sc-if>
+    </div>
+
+    <nav style="flex:1; overflow-y:auto; padding:4px 14px 20px 14px;">
+      <div onClick="{{ homeNav.onClick }}" style="{{ homeNav.style }}">{{ homeNav.label }}</div>
+
+      <sc-for list="{{ navGroups }}" as="grp" hint-placeholder-count="3">
+        <div style="margin-top:18px;">
+          <div style="font-size:10.5px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:oklch(0.5 0.02 280); padding:0 12px 8px 12px;">{{ grp.label }}</div>
+          <sc-for list="{{ grp.items }}" as="item" hint-placeholder-count="4">
+            <div onClick="{{ item.onClick }}" style="{{ item.style }}">{{ item.label }}</div>
+          </sc-for>
+        </div>
+      </sc-for>
+    </nav>
+  </aside>
+
+  <main style="flex:1; overflow-y:auto; position:relative;">
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <div style="position:sticky; top:0; z-index:20; display:flex; align-items:center; gap:12px; padding:14px 18px; background:oklch(0.155 0.022 300 / 0.95); backdrop-filter:blur(6px); border-bottom:1px solid oklch(0.45 0.05 290 / 0.5);">
+        <div onClick="{{ openMobileNav }}" style="display:flex; flex-direction:column; gap:4px; cursor:pointer; padding:4px;">
+          <span style="width:20px; height:2px; background:oklch(0.85 0.03 90); display:block;"></span>
+          <span style="width:20px; height:2px; background:oklch(0.85 0.03 90); display:block;"></span>
+          <span style="width:20px; height:2px; background:oklch(0.85 0.03 90); display:block;"></span>
+        </div>
+        <div style="font-family:'Cinzel',serif; font-weight:700; font-size:16px; color:oklch(0.95 0.015 85);">Hella Bella</div>
+      </div>
+    </sc-if>
+
+    <sc-if value="{{ tickerVisible }}" hint-placeholder-val="{{ false }}">
+      <div style="display:flex; align-items:center; gap:10px; padding:11px 32px; background:linear-gradient(90deg, oklch(0.3 0.06 200 / 0.3), oklch(0.24 0.07 300 / 0.3));">
+        <div style="position:relative; width:13px; height:13px; flex-shrink:0;">
+          <div style="position:absolute; inset:0; border-radius:50%; background:oklch(0.88 0.03 250); box-shadow:0 0 8px oklch(0.88 0.03 250 / 0.6);"></div>
+          <div style="position:absolute; top:-1px; left:3px; width:13px; height:13px; border-radius:50%; background:oklch(0.16 0.03 210);"></div>
+        </div>
+        <span style="font-family:'Manrope',sans-serif; font-size:13px; color:oklch(0.85 0.03 90); letter-spacing:0.01em;">{{ tickerText }}</span>
+      </div>
+      <div style="height:5px; background-image:radial-gradient(circle at 8px -3px, transparent 7px, oklch(0.45 0.05 290 / 0.5) 8px); background-size:16px 7px; background-repeat:repeat-x;"></div>
+    </sc-if>
+
+    <div style="padding:36px 40px 60px 40px; max-width:1100px;">
+
+      <sc-if value="{{ isHome }}" hint-placeholder-val="{{ false }}">
+        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; line-height:1.6; color:oklch(0.62 0.03 280); max-width:760px; margin:0 0 26px 0;">{{ homeMetaNote }}</p>
+
+        <div style="display:flex; gap:20px; margin-bottom:24px; flex-wrap:wrap;">
+          <div style="position:relative; overflow:hidden; flex:1; min-width:280px; background:linear-gradient(160deg, oklch(0.27 0.09 20 / 0.55), oklch(0.25 0.032 296)); border:1px solid oklch(0.5 0.16 18 / 0.5); border-radius:16px; padding:26px 28px; box-shadow:inset 0 1px 0 oklch(0.88 0.03 250 / 0.12);">
+            <div style="position:absolute; right:-20px; bottom:-20px; width:140px; height:140px; border-radius:50%; overflow:hidden;">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hb-hero-next-img" src="assets/moon-trees.jpg" shape="circle" placeholder="Moon photo" style="width:100%; height:100%; background:oklch(0.32 0.04 250 / 0.4); color:oklch(0.88 0.03 250);"></x-import>
+              <div style="position:absolute; inset:0; background:radial-gradient(circle, transparent 30%, oklch(0.24 0.08 20 / 0.85) 85%); pointer-events:none;"></div>
+            </div>
+            <div style="position:relative;">
+              <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:oklch(0.75 0.13 20);">Next Up</div>
+              <div style="font-family:'Cinzel',serif; font-size:34px; font-weight:700; color:oklch(0.96 0.015 85); margin-top:8px;">{{ heroNext.daysLabel }}</div>
+              <div style="font-size:15px; color:oklch(0.88 0.02 85); margin-top:6px; font-weight:600;">{{ heroNext.name }}</div>
+              <div style="font-size:13px; color:oklch(0.65 0.025 280); margin-top:2px;">{{ heroNext.location }} &middot; {{ heroNext.dateRange }}</div>
+            </div>
+          </div>
+          <div style="{{ heroStrong.panelStyle }}">
+            <div style="position:absolute; right:-20px; bottom:-20px; width:140px; height:140px; border-radius:50%; overflow:hidden;">
+              <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="hb-hero-strong-img" src="assets/dragon-moon.jpg" shape="circle" placeholder="Tidepool / shallow water photo" style="width:100%; height:100%; background:oklch(0.32 0.04 250 / 0.4); color:oklch(0.88 0.03 250);"></x-import>
+              <div style="position:absolute; inset:0; background:radial-gradient(circle, transparent 30%, oklch(0.2 0.06 300 / 0.85) 85%); pointer-events:none;"></div>
+            </div>
+            <div style="position:relative;">
+              <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:oklch(0.78 0.11 85);">Next Strong-Fit Event</div>
+              <div style="font-family:'Cinzel',serif; font-size:34px; font-weight:700; color:oklch(0.96 0.015 85); margin-top:8px;">{{ heroStrong.daysLabel }}</div>
+              <div style="font-size:15px; color:oklch(0.88 0.02 85); margin-top:6px; font-weight:600;">{{ heroStrong.name }}</div>
+              <div style="font-size:13px; color:oklch(0.65 0.025 280); margin-top:2px;">{{ heroStrong.location }}</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:16px; margin-bottom:26px; flex-wrap:wrap;">
+          <sc-for list="{{ statChips }}" as="chip" hint-placeholder-count="2">
+            <div style="flex:1; min-width:200px; background:oklch(0.25 0.032 296); border:1px solid oklch(0.45 0.05 290 / 0.5); filter:drop-shadow(0 0 20px oklch(0.62 0.07 235 / 0.28)); border-radius:12px; padding:16px 20px;">
+              <div style="font-size:10.5px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:oklch(0.65 0.025 280);">{{ chip.label }}</div>
+              <div style="font-family:'Cinzel',serif; font-size:22px; font-weight:600; color:oklch(0.92 0.015 85); margin-top:4px;">{{ chip.value }}</div>
+              <div style="font-size:12px; color:oklch(0.58 0.02 280); margin-top:2px;">{{ chip.caption }}</div>
+            </div>
+          </sc-for>
+        </div>
+
+        <section style="background:oklch(0.25 0.032 296); border:1px solid oklch(0.45 0.05 290 / 0.5); filter:drop-shadow(0 0 20px oklch(0.62 0.07 235 / 0.28)); border-radius:14px; padding:26px 28px; margin-bottom:22px;">
+          <h2 style="font-family:'Cinzel',serif; font-size:20px; font-weight:600; letter-spacing:0.02em; color:oklch(0.85 0.03 90); margin:0 0 4px 0; display:flex; align-items:center; gap:10px;">
+            <span style="position:relative; width:12px; height:12px; display:inline-block; flex-shrink:0;">
+              <span style="position:absolute; inset:0; border-radius:50%; background:oklch(0.88 0.03 250);"></span>
+              <span style="position:absolute; top:-1.5px; left:3.5px; width:12px; height:12px; border-radius:50%; background:oklch(0.25 0.032 296);"></span>
+            </span>
+            Best Value: Where to Sell
+          </h2>
+          <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:14.5px; color:oklch(0.6 0.025 280); margin:0 0 18px 0;">{{ rankingsCaveat }}</p>
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px;">
+            <div>
+              <h3 style="font-family:'Manrope',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:oklch(0.7 0.03 280); margin:0 0 12px 0;">Current Inventory</h3>
+              <div style="display:flex; flex-direction:column; gap:12px;">
+                <sc-for list="{{ bestValueCurrent }}" as="v" hint-placeholder-count="5">
+                  <div style="border-left:3px solid {{ v.barrierColor }}; padding:2px 0 2px 12px;">
+                    <div style="font-size:14px; font-weight:700; color:oklch(0.92 0.015 85);">{{ v.name }}</div>
+                    <div style="font-size:12px; color:oklch(0.68 0.11 20); font-weight:600; margin-top:1px;">{{ v.cost }}</div>
+                    <div style="font-size:12.5px; color:oklch(0.62 0.025 280); margin-top:3px; line-height:1.5;">{{ v.reason }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+            <div>
+              <h3 style="font-family:'Manrope',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:oklch(0.7 0.03 280); margin:0 0 12px 0;">Future Dark-Fantasy Inventory</h3>
+              <div style="display:flex; flex-direction:column; gap:12px;">
+                <sc-for list="{{ bestValueDark }}" as="v" hint-placeholder-count="5">
+                  <div style="border-left:3px solid {{ v.barrierColor }}; padding:2px 0 2px 12px;">
+                    <div style="font-size:14px; font-weight:700; color:oklch(0.92 0.015 85);">{{ v.name }}</div>
+                    <div style="font-size:12px; color:oklch(0.68 0.11 20); font-weight:600; margin-top:1px;">{{ v.cost }}</div>
+                    <div style="font-size:12.5px; color:oklch(0.62 0.025 280); margin-top:3px; line-height:1.5;">{{ v.reason }}</div>
+                  </div>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div style="display:flex; gap:20px; flex-wrap:wrap; margin-bottom:22px;">
+          <section style="flex:1; min-width:320px; background:oklch(0.25 0.032 296); border:1px solid oklch(0.45 0.05 290 / 0.5); filter:drop-shadow(0 0 20px oklch(0.62 0.07 235 / 0.28)); border-radius:14px; padding:24px 26px;">
+            <h2 style="font-family:'Cinzel',serif; font-size:18px; font-weight:600; color:oklch(0.85 0.03 90); margin:0 0 14px 0;">Seasonal Window</h2>
+            <sc-if value="{{ seasonalActive.show }}" hint-placeholder-val="{{ false }}">
+              <div style="background:oklch(0.3 0.09 20 / 0.3); border:1px solid oklch(0.5 0.16 18 / 0.4); border-radius:10px; padding:14px 16px; margin-bottom:10px;">
+                <strong style="color:oklch(0.94 0.015 85); font-size:14.5px;">{{ seasonalActive.season }}</strong>
+                <span style="color:oklch(0.75 0.13 20); font-size:12px; font-weight:700; margin-left:6px;">ACTIVE NOW</span>
+                <div style="font-size:12.5px; color:oklch(0.68 0.025 280); margin-top:6px;">{{ seasonalActive.themes }} &middot; {{ seasonalActive.pricing }}</div>
+                <div style="font-size:12.5px; color:oklch(0.6 0.025 280); margin-top:4px; font-style:italic;">{{ seasonalActive.tip }}</div>
+              </div>
+            </sc-if>
+            <sc-for list="{{ seasonalPrep }}" as="s" hint-placeholder-count="1">
+              <div style="background:oklch(0.28 0.035 293); border-radius:10px; padding:12px 16px; margin-bottom:8px;">
+                <strong style="color:oklch(0.9 0.015 85); font-size:13.5px;">{{ s.season }}</strong>
+                <span style="color:oklch(0.75 0.12 70); font-size:11.5px; margin-left:6px;">prep in ~{{ s.weeksAway }}wk</span>
+                <div style="font-size:12px; color:oklch(0.62 0.025 280); margin-top:4px;">{{ s.themes }}</div>
+              </div>
+            </sc-for>
+          </section>
+
+          <section style="flex:1; min-width:320px; background:oklch(0.25 0.06 300 / 0.35); border:1px solid oklch(0.5 0.14 300 / 0.4); border-radius:14px; padding:24px 26px;">
+            <h2 style="font-family:'Cinzel',serif; font-size:18px; font-weight:600; color:oklch(0.85 0.03 90); margin:0 0 14px 0;">Strong-Fit Dark-Fantasy Events</h2>
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <sc-for list="{{ strongFitList }}" as="c" hint-placeholder-count="2">
+                <div style="border-bottom:1px solid oklch(0.34 0.045 290 / 0.3); padding-bottom:10px;">
+                  <div style="font-size:14px; font-weight:700; color:oklch(0.92 0.015 85);">{{ c.name }} <span style="font-weight:600; color:oklch(0.7 0.13 300); font-size:12px;">{{ c.daysLabel }}</span></div>
+                  <div style="font-size:12px; color:oklch(0.62 0.025 280); margin-top:2px;">{{ c.location }} &middot; {{ c.dateRange }}</div>
+                </div>
+              </sc-for>
+              <sc-if value="{{ strongFitEmpty }}" hint-placeholder-val="{{ false }}">
+                <div style="font-size:13px; color:oklch(0.55 0.02 280); font-style:italic;">None flagged in the next 90 days.</div>
+              </sc-if>
+            </div>
+          </section>
+        </div>
+
+        <section style="background:oklch(0.25 0.032 296); border:1px solid oklch(0.45 0.05 290 / 0.5); filter:drop-shadow(0 0 20px oklch(0.62 0.07 235 / 0.28)); border-radius:14px; padding:24px 26px;">
+          <h2 style="font-family:'Cinzel',serif; font-size:18px; font-weight:600; color:oklch(0.85 0.03 90); margin:0 0 14px 0;">Next Up</h2>
+          <div style="display:flex; flex-direction:column; gap:2px;">
+            <sc-for list="{{ nextUpList }}" as="c" hint-placeholder-count="5">
+              <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 4px; border-bottom:1px solid oklch(0.34 0.045 290 / 0.25);">
+                <div style="min-width:0;">
+                  <div style="font-size:14px; font-weight:700; color:oklch(0.92 0.015 85); display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                    {{ c.name }}
+                    <span style="{{ c.categoryStyle }}">{{ c.categoryLabel }}</span>
+                  </div>
+                  <div style="font-size:12px; color:oklch(0.62 0.025 280); margin-top:2px;">{{ c.location }} &middot; {{ c.dateRange }}</div>
+                </div>
+                <div style="font-size:12.5px; font-weight:700; color:oklch(0.7 0.13 300); white-space:nowrap;">{{ c.daysLabel }}</div>
+              </div>
+            </sc-for>
+          </div>
+          <div onClick="{{ goConventions }}" style="margin-top:16px; font-size:13px; font-weight:700; color:oklch(0.68 0.1 155); cursor:pointer; display:inline-block;">See full convention calendar &rarr;</div>
+        </section>
+      </sc-if>
+
+      <sc-if value="{{ isConventions }}" hint-placeholder-val="{{ false }}">
+        <h1 style="font-family:'Cinzel',serif; font-size:32px; font-weight:600; letter-spacing:0.02em; color:oklch(0.94 0.015 85); margin:0 0 18px 0;">Convention Calendar</h1>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:8px;">
+          <input type="search" placeholder="Search conventions..." value="{{ convSearchValue }}" onInput="{{ setConvSearch }}" style="flex:1; min-width:200px; background:oklch(0.25 0.032 296); border:1px solid oklch(0.34 0.045 290 / 0.5); border-radius:8px; padding:10px 12px; color:oklch(0.9 0.015 85); font-family:'Manrope',sans-serif; font-size:13.5px; outline:none;" />
+          <select value="{{ convCategoryValue }}" onChange="{{ setConvCategory }}" style="background:oklch(0.25 0.032 296); border:1px solid oklch(0.34 0.045 290 / 0.5); border-radius:8px; padding:10px 12px; color:oklch(0.9 0.015 85); font-family:'Manrope',sans-serif; font-size:13px;">
+            <sc-for list="{{ convCategoryOptions }}" as="o" hint-placeholder-count="4">
+              <option value="{{ o.value }}">{{ o.label }}</option>
+            </sc-for>
+          </select>
+          <select value="{{ convFitValue }}" onChange="{{ setConvFit }}" style="background:oklch(0.25 0.032 296); border:1px solid oklch(0.34 0.045 290 / 0.5); border-radius:8px; padding:10px 12px; color:oklch(0.9 0.015 85); font-family:'Manrope',sans-serif; font-size:13px;">
+            <sc-for list="{{ convFitOptions }}" as="o" hint-placeholder-count="4">
+              <option value="{{ o.value }}">{{ o.label }}</option>
+            </sc-for>
+          </select>
+          <select value="{{ convSortValue }}" onChange="{{ setConvSort }}" style="background:oklch(0.25 0.032 296); border:1px solid oklch(0.34 0.045 290 / 0.5); border-radius:8px; padding:10px 12px; color:oklch(0.9 0.015 85); font-family:'Manrope',sans-serif; font-size:13px;">
+            <option value="date-asc">Date (soonest first)</option>
+            <option value="date-desc">Date (latest first)</option>
+            <option value="name">Name (A-Z)</option>
+            <option value="barrier-asc">Barrier to entry (lowest first)</option>
+          </select>
+          <label style="display:flex; align-items:center; gap:7px; font-size:13px; color:oklch(0.75 0.02 280); padding:0 6px;">
+            <input type="checkbox" checked="{{ convHidePast }}" onChange="{{ toggleConvHidePast }}" />
+            Hide past events
+          </label>
+        </div>
+        <div style="font-size:12.5px; color:oklch(0.55 0.02 280); margin-bottom:16px;">{{ convCount }}</div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(320px, 1fr)); gap:18px;">
+          <sc-for list="{{ convList }}" as="c" hint-placeholder-count="6">
+            <article style="{{ c.cardStyle }}" style-hover="transform:translateY(-3px); box-shadow:0 16px 34px oklch(0.05 0 0 / 0.45), inset 0 1px 0 oklch(0.88 0.03 250 / 0.18);">
+              <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:10px;">
+                <h3 style="font-family:'Cinzel',serif; font-size:17px; font-weight:600; color:oklch(0.94 0.015 85); margin:0;">{{ c.name }}</h3>
+                <span style="{{ c.categoryStyle }}">{{ c.categoryLabel }}</span>
+              </div>
+              <div style="font-size:12.5px; color:oklch(0.65 0.025 280); margin-top:8px;">{{ c.location }} &middot; {{ c.scaleLabel }}</div>
+              <div style="font-size:12.5px; color:oklch(0.65 0.025 280); margin-top:2px;">{{ c.dateRange }}</div>
+              <div style="margin-top:8px; font-size:12px; font-weight:700; color:oklch(0.7 0.13 300);">{{ c.daysLabel }}</div>
+              <div style="display:flex; gap:6px; flex-wrap:wrap; margin-top:10px;">
+                <sc-for list="{{ c.fitTags }}" as="t" hint-placeholder-count="2">
+                  <span style="{{ t.style }}">{{ t.label }}</span>
+                </sc-for>
+              </div>
+              <p style="font-size:13px; line-height:1.55; color:oklch(0.75 0.02 85); margin:12px 0 0 0;">{{ c.note }}</p>
+              <div onClick="{{ c.toggle }}" style="margin-top:14px; padding-top:12px; border-top:1px solid oklch(0.45 0.05 290 / 0.5); display:flex; align-items:center; justify-content:space-between; cursor:pointer;">
+                <span style="font-size:12px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:oklch(0.65 0.025 280);">Vendor Details</span>
+                <span style="{{ c.chevronStyle }}"></span>
+              </div>
+              <sc-if value="{{ c.isExpanded }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:12px; display:flex; flex-direction:column; gap:10px;">
+                  <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+                    <strong style="color:oklch(0.9 0.015 85); font-size:13.5px;">{{ c.tableCost }}</strong>
+                    <span style="{{ c.barrierStyle }}">{{ c.barrierLabel }}</span>
+                  </div>
+                  <div style="display:flex; gap:6px; flex-wrap:wrap;">
+                    <span style="{{ c.juryStyle }}">{{ c.juryLabel }}</span>
+                    <sc-if value="{{ c.hasAttendance }}" hint-placeholder-val="{{ false }}">
+                      <span style="{{ c.tagStyle }}">{{ c.attendance }}</span>
+                    </sc-if>
+                    <span style="{{ c.confStyle }}">{{ c.confLabel }} confidence</span>
+                  </div>
+                  <sc-if value="{{ c.hasAppWindow }}" hint-placeholder-val="{{ false }}">
+                    <div style="background:oklch(0.155 0.022 300 / 0.5); border-radius:8px; padding:10px 12px; font-size:12px; color:oklch(0.65 0.025 280); line-height:1.6;">
+                      <div><strong style="color:oklch(0.8 0.02 85);">Opens:</strong> {{ c.appOpens }}</div>
+                      <div><strong style="color:oklch(0.8 0.02 85);">Closes:</strong> {{ c.appCloses }}</div>
+                      <div><strong style="color:oklch(0.8 0.02 85);">How:</strong> {{ c.appMechanism }}</div>
+                    </div>
+                  </sc-if>
+                </div>
+              </sc-if>
+            </article>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isCompetitors }}" hint-placeholder-val="{{ false }}">
+        <h1 style="font-family:'Cinzel',serif; font-size:32px; font-weight:600; color:oklch(0.94 0.015 85); margin:0 0 18px 0;">Competitor Pricing</h1>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:18px;">
+          <input type="search" placeholder="Search competitors..." value="{{ compSearchValue }}" onInput="{{ setCompSearch }}" style="flex:1; min-width:200px; background:oklch(0.25 0.032 296); border:1px solid oklch(0.34 0.045 290 / 0.5); border-radius:8px; padding:10px 12px; color:oklch(0.9 0.015 85); font-family:'Manrope',sans-serif; font-size:13.5px; outline:none;" />
+          <select value="{{ compNicheValue }}" onChange="{{ setCompNiche }}" style="background:oklch(0.25 0.032 296); border:1px solid oklch(0.34 0.045 290 / 0.5); border-radius:8px; padding:10px 12px; color:oklch(0.9 0.015 85); font-family:'Manrope',sans-serif; font-size:13px;">
+            <sc-for list="{{ compNicheOptions }}" as="o" hint-placeholder-count="3">
+              <option value="{{ o.value }}">{{ o.label }}</option>
+            </sc-for>
+          </select>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <sc-for list="{{ compList }}" as="c" hint-placeholder-count="5">
+            <div style="background:oklch(0.25 0.032 296); border:1px solid oklch(0.45 0.05 290 / 0.5); filter:drop-shadow(0 0 20px oklch(0.62 0.07 235 / 0.28)); border-radius:12px; padding:18px 20px; box-shadow:inset 0 1px 0 oklch(0.88 0.03 250 / 0.1); transition:transform 0.18s ease, box-shadow 0.18s ease;" style-hover="transform:translateY(-3px); box-shadow:0 16px 34px oklch(0.05 0 0 / 0.45), inset 0 1px 0 oklch(0.88 0.03 250 / 0.18);">
+              <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;">
+                <h3 style="font-family:'Cinzel',serif; font-size:16px; font-weight:600; color:oklch(0.94 0.015 85); margin:0;">{{ c.name }}</h3>
+                <span style="font-size:13px; font-weight:700; color:oklch(0.68 0.11 20);">{{ c.priceRange }}</span>
+              </div>
+              <div style="font-size:12.5px; color:oklch(0.65 0.025 280); margin-top:4px;">{{ c.platform }} &middot; <span style="color:oklch(0.7 0.13 300);">{{ c.niche }}</span></div>
+              <p style="font-size:13px; line-height:1.55; color:oklch(0.75 0.02 85); margin:10px 0 0 0;">{{ c.note }}</p>
+              <sc-if value="{{ c.hasUrl }}" hint-placeholder-val="{{ false }}">
+                <a href="{{ c.url }}" target="_blank" rel="noopener" style="font-size:12.5px; font-weight:700; color:oklch(0.68 0.1 155);">Visit shop &rarr;</a>
+              </sc-if>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isDemand }}" hint-placeholder-val="{{ false }}">
+        <h1 style="font-family:'Cinzel',serif; font-size:32px; font-weight:600; color:oklch(0.94 0.015 85); margin:0 0 8px 0;">Product Demand</h1>
+        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; line-height:1.6; color:oklch(0.62 0.03 280); max-width:760px; margin:0 0 24px 0;">Research into what actually sells, at what price, and where the gaps are. Confidence badges and sources let you judge how much weight to put on each finding.</p>
+        <sc-for list="{{ demandSections }}" as="sec" hint-placeholder-count="4">
+          <section style="background:oklch(0.25 0.032 296); border:1px solid oklch(0.45 0.05 290 / 0.5); filter:drop-shadow(0 0 20px oklch(0.62 0.07 235 / 0.28)); border-radius:14px; padding:24px 26px; margin-bottom:20px;">
+            <h2 style="font-family:'Cinzel',serif; font-size:19px; font-weight:600; color:oklch(0.85 0.03 90); margin:0 0 14px 0;">{{ sec.title }}</h2>
+            <dc-import name="FindingList" items="{{ sec.items }}" hint-size="100%,200px"></dc-import>
+          </section>
+        </sc-for>
+      </sc-if>
+
+      <sc-if value="{{ isMaterials }}" hint-placeholder-val="{{ false }}">
+        <h1 style="font-family:'Cinzel',serif; font-size:32px; font-weight:600; color:oklch(0.94 0.015 85); margin:0 0 8px 0;">Materials &amp; Suppliers</h1>
+        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; line-height:1.6; color:oklch(0.62 0.03 280); max-width:760px; margin:0 0 24px 0;">Yarn brands, pricing, quality reputation, and supply channels for plushie production.</p>
+        <sc-for list="{{ materialsSections }}" as="sec" hint-placeholder-count="5">
+          <section style="background:oklch(0.25 0.032 296); border:1px solid oklch(0.45 0.05 290 / 0.5); filter:drop-shadow(0 0 20px oklch(0.62 0.07 235 / 0.28)); border-radius:14px; padding:24px 26px; margin-bottom:20px;">
+            <h2 style="font-family:'Cinzel',serif; font-size:19px; font-weight:600; color:oklch(0.85 0.03 90); margin:0 0 14px 0;">{{ sec.title }}</h2>
+            <dc-import name="FindingList" items="{{ sec.items }}" hint-size="100%,200px"></dc-import>
+          </section>
+        </sc-for>
+      </sc-if>
+
+      <sc-if value="{{ isBusiness }}" hint-placeholder-val="{{ false }}">
+        <h1 style="font-family:'Cinzel',serif; font-size:32px; font-weight:600; color:oklch(0.94 0.015 85); margin:0 0 8px 0;">Business Setup</h1>
+        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; line-height:1.6; color:oklch(0.62 0.03 280); max-width:760px; margin:0 0 24px 0;">Platform fees, card readers, booth equipment, pricing formulas, and marketing channels.</p>
+        <sc-for list="{{ businessSections }}" as="sec" hint-placeholder-count="6">
+          <section style="background:oklch(0.25 0.032 296); border:1px solid oklch(0.45 0.05 290 / 0.5); filter:drop-shadow(0 0 20px oklch(0.62 0.07 235 / 0.28)); border-radius:14px; padding:24px 26px; margin-bottom:20px;">
+            <h2 style="font-family:'Cinzel',serif; font-size:19px; font-weight:600; color:oklch(0.85 0.03 90); margin:0 0 14px 0;">{{ sec.title }}</h2>
+            <dc-import name="FindingList" items="{{ sec.items }}" hint-size="100%,200px"></dc-import>
+          </section>
+        </sc-for>
+      </sc-if>
+
+      <sc-if value="{{ isShipping }}" hint-placeholder-val="{{ false }}">
+        <h1 style="font-family:'Cinzel',serif; font-size:32px; font-weight:600; color:oklch(0.94 0.015 85); margin:0 0 20px 0;">Shipping Tiers &amp; Packaging Costs</h1>
+        <div style="display:flex; flex-direction:column; gap:14px;">
+          <sc-for list="{{ shippingRows }}" as="t" hint-placeholder-count="4">
+            <div style="background:oklch(0.25 0.032 296); border:1px solid oklch(0.45 0.05 290 / 0.5); filter:drop-shadow(0 0 20px oklch(0.62 0.07 235 / 0.28)); border-radius:12px; padding:18px 22px; display:grid; grid-template-columns:70px 1fr 1fr; gap:16px; align-items:start;">
+              <span style="background:oklch(0.25 0.06 300 / 0.5); color:oklch(0.85 0.05 300); font-size:11px; font-weight:700; border-radius:6px; padding:5px 8px; text-align:center; height:fit-content;">Tier {{ t.tier }}</span>
+              <div>
+                <div style="font-size:14px; color:oklch(0.9 0.015 85); font-weight:600;">{{ t.examples }}</div>
+                <div style="font-size:12.5px; color:oklch(0.62 0.025 280); margin-top:3px;">{{ t.weight }}</div>
+              </div>
+              <div>
+                <div style="font-size:13px; color:oklch(0.85 0.02 85);">{{ t.packaging }} <span style="color:oklch(0.68 0.11 20); font-weight:700;">{{ t.packagingCost }}</span></div>
+                <div style="font-size:12.5px; color:oklch(0.62 0.025 280); margin-top:3px;">Ship: {{ t.shipCost }}</div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isPatterns }}" hint-placeholder-val="{{ false }}">
+        <h1 style="font-family:'Cinzel',serif; font-size:32px; font-weight:600; color:oklch(0.94 0.015 85); margin:0 0 20px 0;">Digital Pattern Pricing Benchmarks</h1>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(260px, 1fr)); gap:16px;">
+          <sc-for list="{{ patternCards }}" as="p" hint-placeholder-count="5">
+            <div style="background:oklch(0.25 0.032 296); border:1px solid oklch(0.45 0.05 290 / 0.5); filter:drop-shadow(0 0 20px oklch(0.62 0.07 235 / 0.28)); border-radius:12px; padding:20px 22px; box-shadow:inset 0 1px 0 oklch(0.88 0.03 250 / 0.1); transition:transform 0.18s ease, box-shadow 0.18s ease;" style-hover="transform:translateY(-3px); box-shadow:0 16px 34px oklch(0.05 0 0 / 0.45), inset 0 1px 0 oklch(0.88 0.03 250 / 0.18);">
+              <h3 style="font-family:'Cinzel',serif; font-size:15px; font-weight:600; color:oklch(0.92 0.015 85); margin:0 0 8px 0;">{{ p.type }}</h3>
+              <div style="font-size:17px; font-weight:700; color:oklch(0.68 0.11 20);">{{ p.priceRange }}</div>
+              <p style="font-size:12.5px; color:oklch(0.65 0.025 280); margin:8px 0 0 0; line-height:1.5;">{{ p.example }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isSeasonal }}" hint-placeholder-val="{{ false }}">
+        <h1 style="font-family:'Cinzel',serif; font-size:32px; font-weight:600; color:oklch(0.94 0.015 85); margin:0 0 20px 0;">Seasonal Cycle</h1>
+        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:18px;">
+          <sc-for list="{{ seasonalCards }}" as="s" hint-placeholder-count="4">
+            <div style="{{ s.cardStyle }}" style-hover="transform:translateY(-3px); box-shadow:0 16px 34px oklch(0.05 0 0 / 0.45), inset 0 1px 0 oklch(0.88 0.03 250 / 0.18);">
+              <div style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                <h3 style="font-family:'Cinzel',serif; font-size:16px; font-weight:600; color:oklch(0.94 0.015 85); margin:0;">{{ s.season }}</h3>
+                <sc-if value="{{ s.hasBadge }}" hint-placeholder-val="{{ false }}">
+                  <span style="{{ s.badgeStyle }}">{{ s.badgeLabel }}</span>
+                </sc-if>
+              </div>
+              <p style="font-size:13px; color:oklch(0.75 0.02 85); margin:12px 0 0 0; line-height:1.55;"><strong style="color:oklch(0.85 0.02 90);">Themes:</strong> {{ s.themes }}</p>
+              <p style="font-size:13px; color:oklch(0.75 0.02 85); margin:8px 0 0 0; line-height:1.55;"><strong style="color:oklch(0.85 0.02 90);">Pricing:</strong> {{ s.pricing }}</p>
+              <p style="font-size:13px; color:oklch(0.75 0.02 85); margin:8px 0 0 0; line-height:1.55;"><strong style="color:oklch(0.85 0.02 90);">Tip:</strong> {{ s.tip }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isTimeline }}" hint-placeholder-val="{{ false }}">
+        <h1 style="font-family:'Cinzel',serif; font-size:32px; font-weight:600; color:oklch(0.94 0.015 85); margin:0 0 8px 0;">Historical Trends</h1>
+        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:16px; color:oklch(0.62 0.03 280); margin:0 0 26px 0;">Confidence badges reflect how well-sourced each data point is.</p>
+        <div style="position:relative; padding-left:26px; border-left:2px solid oklch(0.34 0.045 290 / 0.5);">
+          <sc-for list="{{ timelineItems }}" as="t" hint-placeholder-count="6">
+            <div style="position:relative; margin-bottom:26px;">
+              <span style="position:absolute; left:-32px; top:2px; width:11px; height:11px; border-radius:50%; background:oklch(0.78 0.11 85); box-shadow:0 0 0 3px oklch(0.155 0.022 300);"></span>
+              <div style="font-family:'Cinzel',serif; font-size:15px; font-weight:700; color:oklch(0.78 0.11 85);">{{ t.year }}</div>
+              <div style="font-size:14.5px; color:oklch(0.9 0.015 85); margin-top:4px; line-height:1.5;">{{ t.event }} <span style="{{ t.confStyle }}">{{ t.confLabel }}</span></div>
+              <div style="font-size:12.5px; color:oklch(0.65 0.025 280); margin-top:4px;">{{ t.relevance }}</div>
+              <div style="font-size:11.5px; color:oklch(0.5 0.02 280); margin-top:4px;">Source: {{ t.source }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isPremium }}" hint-placeholder-val="{{ false }}">
+        <h1 style="font-family:'Cinzel',serif; font-size:32px; font-weight:600; color:oklch(0.94 0.015 85); margin:0 0 20px 0;">Removable-Parts Premium Feature</h1>
+        <div style="background:linear-gradient(160deg, oklch(0.27 0.09 20 / 0.4), oklch(0.25 0.032 296)); border:1px solid oklch(0.5 0.16 18 / 0.4); border-radius:14px; padding:26px 28px; margin-bottom:22px;">
+          <div style="font-family:'Cinzel',serif; font-size:28px; font-weight:700; color:oklch(0.96 0.015 85);">{{ premiumPrice }}</div>
+          <sc-if value="{{ premiumConfirmed }}" hint-placeholder-val="{{ false }}">
+            <span style="display:inline-block; margin-top:8px; font-size:11.5px; font-weight:700; color:oklch(0.68 0.1 155); text-transform:uppercase; letter-spacing:0.04em;">Category confirmed to exist</span>
+          </sc-if>
+          <p style="font-size:13.5px; color:oklch(0.75 0.02 85); margin:14px 0 0 0; line-height:1.6;"><strong style="color:oklch(0.88 0.02 90);">Evidence:</strong> {{ premiumEvidence }}</p>
+          <p style="font-size:13.5px; color:oklch(0.65 0.025 280); margin:10px 0 0 0; line-height:1.6; font-style:italic;"><strong style="color:oklch(0.7 0.03 280); font-style:normal;">Caveat:</strong> {{ premiumNote }}</p>
+        </div>
+        <h2 style="font-family:'Cinzel',serif; font-size:19px; font-weight:600; color:oklch(0.85 0.03 90); margin:0 0 14px 0;">Selling Platform: Wix Pricing</h2>
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <sc-for list="{{ wixRows }}" as="w" hint-placeholder-count="4">
+            <div style="background:oklch(0.25 0.032 296); border:1px solid oklch(0.45 0.05 290 / 0.5); filter:drop-shadow(0 0 20px oklch(0.62 0.07 235 / 0.28)); border-radius:10px; padding:14px 18px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;">
+              <div style="font-family:'Cinzel',serif; font-weight:600; color:oklch(0.9 0.015 85); font-size:14.5px; min-width:100px;">{{ w.plan }}</div>
+              <div style="font-size:14px; color:oklch(0.68 0.11 20); font-weight:700; min-width:60px;">{{ w.cost }}</div>
+              <span style="{{ w.ecomStyle }}">{{ w.ecomLabel }}</span>
+              <div style="font-size:12px; color:oklch(0.62 0.025 280); flex:1; min-width:180px;">{{ w.note }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isClearance }}" hint-placeholder-val="{{ false }}">
+        <h1 style="font-family:'Cinzel',serif; font-size:32px; font-weight:600; color:oklch(0.94 0.015 85); margin:0 0 18px 0;">Clearing Old Inventory</h1>
+        <input type="search" placeholder="Search strategies..." value="{{ clearSearchValue }}" onInput="{{ setClearSearch }}" style="width:100%; max-width:360px; background:oklch(0.25 0.032 296); border:1px solid oklch(0.34 0.045 290 / 0.5); border-radius:8px; padding:10px 12px; color:oklch(0.9 0.015 85); font-family:'Manrope',sans-serif; font-size:13.5px; outline:none; margin-bottom:20px; display:block;" />
+        <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:16px;">
+          <sc-for list="{{ clearList }}" as="s" hint-placeholder-count="6">
+            <div style="background:oklch(0.25 0.032 296); border:1px solid oklch(0.45 0.05 290 / 0.5); filter:drop-shadow(0 0 20px oklch(0.62 0.07 235 / 0.28)); border-radius:12px; padding:20px 22px; box-shadow:inset 0 1px 0 oklch(0.88 0.03 250 / 0.1); transition:transform 0.18s ease, box-shadow 0.18s ease;" style-hover="transform:translateY(-3px); box-shadow:0 16px 34px oklch(0.05 0 0 / 0.45), inset 0 1px 0 oklch(0.88 0.03 250 / 0.18);">
+              <h3 style="font-family:'Cinzel',serif; font-size:15.5px; font-weight:600; color:oklch(0.92 0.015 85); margin:0 0 8px 0;">{{ s.strategy }}</h3>
+              <div style="font-size:15px; font-weight:700; color:oklch(0.68 0.11 20);">{{ s.pricing }}</div>
+              <p style="font-size:12.5px; color:oklch(0.75 0.02 85); margin:10px 0 0 0; line-height:1.5;"><strong style="color:oklch(0.85 0.02 90);">How:</strong> {{ s.howItWorks }}</p>
+              <p style="font-size:12.5px; color:oklch(0.62 0.025 280); margin:8px 0 0 0; line-height:1.5;">{{ s.note }}</p>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{ isCopyright }}" hint-placeholder-val="{{ false }}">
+        <h1 style="font-family:'Cinzel',serif; font-size:32px; font-weight:600; color:oklch(0.94 0.015 85); margin:0 0 20px 0;">Copyright Quick-Reference</h1>
+        <section style="background:oklch(0.25 0.032 296); border:1px solid oklch(0.45 0.05 290 / 0.5); filter:drop-shadow(0 0 20px oklch(0.62 0.07 235 / 0.28)); border-radius:14px; padding:24px 26px; margin-bottom:18px;">
+          <h2 style="font-family:'Cinzel',serif; font-size:18px; font-weight:600; color:oklch(0.85 0.03 90); margin:0 0 14px 0;">Generally Safe</h2>
+          <div style="display:flex; flex-direction:column; gap:9px;">
+            <sc-for list="{{ copyrightSafe }}" as="item" hint-placeholder-count="4">
+              <div style="display:flex; gap:10px; align-items:flex-start; font-size:14px; color:oklch(0.82 0.02 85); line-height:1.5;">
+                <span style="width:6px; height:6px; margin-top:7px; border-radius:50%; background:oklch(0.68 0.1 155); flex-shrink:0;"></span>
+                {{ item.text }}
+              </div>
+            </sc-for>
+          </div>
+        </section>
+        <section style="background:oklch(0.25 0.032 296); border:1px solid oklch(0.45 0.05 290 / 0.5); filter:drop-shadow(0 0 20px oklch(0.62 0.07 235 / 0.28)); border-radius:14px; padding:24px 26px; margin-bottom:18px;">
+          <h2 style="font-family:'Cinzel',serif; font-size:18px; font-weight:600; color:oklch(0.85 0.03 90); margin:0 0 12px 0;">Lovecraft-Specific Notes</h2>
+          <p style="font-size:14px; color:oklch(0.78 0.02 85); line-height:1.6; margin:0;">{{ copyrightLovecraft }}</p>
+        </section>
+        <section style="background:oklch(0.3 0.1 20 / 0.25); border:1px solid oklch(0.5 0.16 18 / 0.5); border-radius:14px; padding:24px 26px;">
+          <h2 style="font-family:'Cinzel',serif; font-size:18px; font-weight:600; color:oklch(0.8 0.13 25); margin:0 0 12px 0;">Risk Evidence: Baby Yoda Precedent</h2>
+          <p style="font-size:14px; color:oklch(0.8 0.03 85); line-height:1.6; margin:0;">{{ copyrightRisk }}</p>
+        </section>
+      </sc-if>
+
+    </div>
+  </main>
+</div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const NAV_GROUPS_DEF = [
+  { label: 'Sell', items: [
+    { key: 'conventions', label: 'Conventions' },
+    { key: 'competitors', label: 'Competitors' },
+    { key: 'clearance', label: 'Clearance' },
+    { key: 'premium', label: 'Premium Features' },
+  ]},
+  { label: 'Research', items: [
+    { key: 'demand', label: 'Product Demand' },
+    { key: 'materials', label: 'Materials' },
+    { key: 'business', label: 'Business Setup' },
+    { key: 'timeline', label: 'Historical Trends' },
+  ]},
+  { label: 'Reference', items: [
+    { key: 'shipping', label: 'Shipping' },
+    { key: 'patterns', label: 'Digital Patterns' },
+    { key: 'seasonal', label: 'Seasonal Cycle' },
+    { key: 'copyright', label: 'Copyright' },
+  ]},
+];
+
+const CATEGORY_COLORS = {
+  anime: 'oklch(0.68 0.13 300)',
+  comics: 'oklch(0.68 0.13 250)',
+  general: 'oklch(0.65 0.02 280)',
+  multi: 'oklch(0.7 0.11 85)',
+  renfaire: 'oklch(0.62 0.13 145)',
+  horror: 'oklch(0.6 0.15 20)',
+};
+
+class Component extends DCLogic {
+  state = {
+    data: null,
+    page: 'home',
+    isMobile: (typeof window !== 'undefined' ? window.innerWidth < 900 : false),
+    mobileNavOpen: false,
+    searchQuery: '',
+    convFilters: { search: '', category: '', fitTag: '', sort: 'date-asc', hidePast: true },
+    expandedConv: {},
+    compFilters: { search: '', niche: '' },
+    clearSearch: '',
+  };
+
+  componentDidMount() {
+    fetch('data/dashboard_data.json')
+      .then((r) => r.json())
+      .then((data) => {
+        this.searchIdx = this.buildSearchIndex(data);
+        this.setState({ data });
+      })
+      .catch((err) => {
+        this.setState({ data: { error: String(err) } });
+      });
+    this._onResize = () => this.setState({ isMobile: window.innerWidth < 900 });
+    window.addEventListener('resize', this._onResize);
+  }
+
+  componentWillUnmount() {
+    if (this._onResize) window.removeEventListener('resize', this._onResize);
+  }
+
+  /* ---------- date helpers ---------- */
+  parseISO(dateStr) {
+    if (!dateStr) return null;
+    const d = new Date(dateStr + 'T00:00:00');
+    return isNaN(d.getTime()) ? null : d;
+  }
+  daysUntil(dateStr) {
+    const target = this.parseISO(dateStr);
+    if (!target) return null;
+    const today = this.parseISO(new Date().toISOString().slice(0, 10));
+    return Math.round((target - today) / 86400000);
+  }
+  formatDateRange(startDate, endDate) {
+    if (!startDate) return 'Date TBD';
+    const opts = { month: 'short', day: 'numeric', year: 'numeric' };
+    const start = this.parseISO(startDate);
+    const startStr = start.toLocaleDateString('en-US', opts);
+    if (!endDate || endDate === startDate) return startStr;
+    const end = this.parseISO(endDate);
+    const sameMonth = start.getFullYear() === end.getFullYear() && start.getMonth() === end.getMonth();
+    if (sameMonth) return `${start.toLocaleDateString('en-US', { month: 'short' })} ${start.getDate()}-${end.getDate()}, ${end.getFullYear()}`;
+    return `${startStr} - ${end.toLocaleDateString('en-US', opts)}`;
+  }
+  daysUntilLabel(days) {
+    if (days === null || days === undefined) return 'Date TBD';
+    if (days < 0) return 'Past';
+    if (days === 0) return 'Today';
+    if (days === 1) return 'Tomorrow';
+    return `${days} days`;
+  }
+  getUpcoming(conventions, limit) {
+    const list = (conventions || [])
+      .map((c) => ({ ...c, days: this.daysUntil(c.startDate) }))
+      .filter((c) => c.days === null || c.days >= 0)
+      .sort((a, b) => {
+        if (a.days === null) return 1;
+        if (b.days === null) return -1;
+        return a.days - b.days;
+      });
+    return typeof limit === 'number' ? list.slice(0, limit) : list;
+  }
+  getSeasonalStatus(seasonalCycle) {
+    const SEASON_MONTH_RANGES = {
+      'Halloween (Sept-Oct)': [8, 9],
+      'Christmas (Nov-Dec)': [10, 11],
+      "Valentine's Day (Jan-Feb)": [0, 1],
+      'Easter/Spring (Mar-Apr)': [2, 3],
+    };
+    const now = new Date();
+    return (seasonalCycle || []).map((season) => {
+      const range = SEASON_MONTH_RANGES[season.season];
+      if (!range) return { ...season, status: 'unknown', weeksAway: null };
+      const [startMonth] = range;
+      const prepStart = new Date(now.getFullYear(), startMonth, 1);
+      prepStart.setDate(prepStart.getDate() - 49);
+      const seasonStart = new Date(now.getFullYear(), startMonth, 1);
+      const seasonEnd = new Date(now.getFullYear(), range[1] + 1, 0);
+      let adjStart = seasonStart, adjEnd = seasonEnd, adjPrep = prepStart;
+      if (seasonEnd < now && (seasonEnd - now) < -60 * 86400000) {
+        adjStart = new Date(now.getFullYear() + 1, startMonth, 1);
+        adjEnd = new Date(now.getFullYear() + 1, range[1] + 1, 0);
+        adjPrep = new Date(adjStart);
+        adjPrep.setDate(adjPrep.getDate() - 49);
+      }
+      let status = 'later';
+      if (now >= adjStart && now <= adjEnd) status = 'active';
+      else if (now >= adjPrep && now < adjStart) status = 'prep';
+      const daysToPrep = Math.round((adjPrep - now) / 86400000);
+      return { ...season, status, weeksAway: Math.max(0, Math.round(daysToPrep / 7)) };
+    });
+  }
+
+  confColor(level) {
+    const l = (level || '').toLowerCase();
+    if (l.startsWith('high')) return 'oklch(0.65 0.09 200)';
+    if (l.startsWith('medium')) return 'oklch(0.75 0.12 70)';
+    if (l.startsWith('low')) return 'oklch(0.62 0.12 15)';
+    return 'oklch(0.55 0.02 280)';
+  }
+  barrierColor(level) {
+    const key = (level || '').toLowerCase().split(' ')[0];
+    const map = { low: 'oklch(0.65 0.09 200)', 'low-medium': 'oklch(0.75 0.12 70)', medium: 'oklch(0.75 0.12 70)', 'medium-high': 'oklch(0.62 0.12 15)', high: 'oklch(0.62 0.12 15)' };
+    return map[key] || 'oklch(0.55 0.02 280)';
+  }
+  badgeStyle(color, filled) {
+    return `font-size:10.5px; font-weight:700; letter-spacing:0.03em; padding:4px 9px; border-radius:20px; white-space:nowrap; background:${color.replace('oklch(', 'oklch(').replace(')', ' / 0.18)')}; color:${color}; border:1px solid ${color.replace(')', ' / 0.4)')};`;
+  }
+
+  /* ---------- search ---------- */
+  buildSearchIndex(data) {
+    const idx = [];
+    const push = (section, page, title, text) => idx.push({ section, page, title, text: (title + ' ' + (text || '')).toLowerCase() });
+    (data.conventions || []).forEach((c) => push('Conventions', 'conventions', c.name, `${c.location} ${c.category} ${(c.fitTags || []).join(' ')} ${c.note}`));
+    (data.competitors || []).forEach((c) => push('Competitors', 'competitors', c.name, `${c.platform} ${c.niche} ${c.note}`));
+    const findingGroups = [
+      ['Product Demand', 'demand', data.productDemand],
+      ['Materials', 'materials', data.materialsSuppliers],
+      ['Business Setup', 'business', data.businessSetup],
+    ];
+    findingGroups.forEach(([label, page, obj]) => {
+      if (!obj) return;
+      Object.keys(obj).forEach((k) => {
+        if (Array.isArray(obj[k])) {
+          obj[k].forEach((f) => { if (f && f.finding) push(label, page, f.finding.slice(0, 70), f.source); });
+        }
+      });
+    });
+    (data.shippingTiers || []).forEach((t) => push('Shipping', 'shipping', `Tier ${t.tier}: ${t.examples}`, t.weight));
+    (data.digitalPatternPricing || []).forEach((p) => push('Digital Patterns', 'patterns', p.type, p.priceRange));
+    (data.seasonalCycle || []).forEach((s) => push('Seasonal Cycle', 'seasonal', s.season, s.themes));
+    (data.historicalTimeline || []).forEach((t) => push('Historical Trends', 'timeline', `${t.year}: ${t.event}`, t.relevance));
+    (data.clearingOldInventory || []).forEach((s) => push('Clearance', 'clearance', s.strategy, s.note));
+    push('Premium Features', 'premium', 'Removable-parts premium', data.removablePartsPremium && data.removablePartsPremium.confirmedPricePoint);
+    push('Copyright', 'copyright', 'Copyright quick-reference', '');
+    return idx;
+  }
+  runSearch(query) {
+    const q = query.trim().toLowerCase();
+    if (!q || !this.searchIdx) return [];
+    return this.searchIdx.filter((i) => i.text.includes(q)).slice(0, 8);
+  }
+
+  setPage(key) { this.setState({ page: key, mobileNavOpen: false, searchQuery: '' }); }
+
+  renderVals() {
+    const data = this.state.data;
+    if (!data || data.error) return { isLoading: !data, isReady: false };
+
+    const page = this.state.page;
+    const isMobile = this.state.isMobile;
+
+    /* --- nav --- */
+    const homeNav = {
+      label: 'Home',
+      onClick: () => this.setPage('home'),
+      style: page === 'home'
+        ? "display:block; padding:10px 12px; margin-bottom:2px; border-radius:8px; font-size:14px; font-weight:700; cursor:pointer; background:oklch(0.3 0.1 20 / 0.3); color:oklch(0.94 0.02 85); border-left:3px solid oklch(0.55 0.17 20);"
+        : "display:block; padding:10px 12px; margin-bottom:2px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; color:oklch(0.75 0.02 280); border-left:3px solid transparent;",
+    };
+    const navGroups = NAV_GROUPS_DEF.map((g) => ({
+      label: g.label,
+      items: g.items.map((it) => ({
+        label: it.label,
+        onClick: () => this.setPage(it.key),
+        style: page === it.key
+          ? "display:block; padding:9px 12px; margin-bottom:2px; border-radius:8px; font-size:13.5px; font-weight:700; cursor:pointer; background:oklch(0.3 0.1 20 / 0.3); color:oklch(0.94 0.02 85); border-left:3px solid oklch(0.55 0.17 20);"
+          : "display:block; padding:9px 12px; margin-bottom:2px; border-radius:8px; font-size:13.5px; font-weight:600; cursor:pointer; color:oklch(0.7 0.02 280); border-left:3px solid transparent;",
+      })),
+    }));
+
+    const sidebarStyle = isMobile
+      ? `position:fixed; top:0; left:0; height:100vh; width:280px; z-index:50; background:oklch(0.135 0.02 300); display:flex; flex-direction:column; transform:translateX(${this.state.mobileNavOpen ? '0' : '-105%'}); transition:transform 0.25s ease; box-shadow:12px 0 40px oklch(0.05 0 0 / 0.6);`
+      : `position:relative; width:264px; flex-shrink:0; height:100vh; background:oklch(0.135 0.02 300); display:flex; flex-direction:column; border-right:1px solid oklch(0.45 0.05 290 / 0.5);`;
+    const backdropStyle = isMobile && this.state.mobileNavOpen
+      ? 'position:fixed; inset:0; background:oklch(0.05 0 0 / 0.55); z-index:40;'
+      : 'display:none;';
+
+    /* --- search --- */
+    const searchResults = this.runSearch(this.state.searchQuery).map((r) => ({
+      section: r.section,
+      title: r.title,
+      go: () => this.setPage(r.page),
+    }));
+    const searchActive = this.state.searchQuery.trim().length > 0;
+    const searchEmpty = searchActive && searchResults.length === 0;
+
+    /* --- ticker --- */
+    const nextConv = this.getUpcoming(data.conventions || [], 1)[0];
+    const tickerVisible = !!nextConv;
+    const tickerText = nextConv ? `Next up: ${nextConv.name} · ${this.daysUntilLabel(nextConv.days)}` : '';
+
+    const base = {
+      isLoading: false, isReady: true,
+      isMobile, homeNav, navGroups, sidebarStyle, backdropStyle,
+      searchQuery: this.state.searchQuery,
+      onSearchInput: (e) => this.setState({ searchQuery: e.target.value }),
+      searchResults, searchActive, searchEmpty,
+      openMobileNav: () => this.setState({ mobileNavOpen: true }),
+      closeMobileNav: () => this.setState({ mobileNavOpen: false }),
+      tickerVisible, tickerText,
+      isHome: page === 'home', isConventions: page === 'conventions', isCompetitors: page === 'competitors',
+      isDemand: page === 'demand', isMaterials: page === 'materials', isBusiness: page === 'business',
+      isShipping: page === 'shipping', isPatterns: page === 'patterns', isSeasonal: page === 'seasonal',
+      isTimeline: page === 'timeline', isPremium: page === 'premium', isClearance: page === 'clearance',
+      isCopyright: page === 'copyright',
+      goConventions: () => this.setPage('conventions'),
+    };
+
+    if (page === 'home') Object.assign(base, this.computeHome(data));
+    if (page === 'conventions') Object.assign(base, this.computeConventions(data));
+    if (page === 'competitors') Object.assign(base, this.computeCompetitors(data));
+    if (page === 'demand') base.demandSections = this.sectionsFrom(data.productDemand, [
+      ['bestsellers', 'Bestseller Item Types'], ['priceRange', 'Most Common Sale Price Range'],
+      ['bundles', 'Bundled / Multi-Item Deals'], ['gaps', 'Under-Represented Items / Buyer Gaps'],
+    ]);
+    if (page === 'materials') base.materialsSections = this.sectionsFrom(data.materialsSuppliers, [
+      ['yarnBrands', 'Yarn Brands Makers Actually Use'], ['yarnPricing', 'Price Comparison & Where to Buy'],
+      ['qualityReputation', 'Quality Reputation'], ['bulkWholesale', 'Bulk & Wholesale Options'],
+      ['eyesAndStuffing', 'Safety Eyes & Stuffing'],
+    ]);
+    if (page === 'business') base.businessSections = this.sectionsFrom(data.businessSetup, [
+      ['legal', 'California Legal Requirements'], ['etsyFees', 'Etsy Seller Fees'],
+      ['paymentProcessing', 'In-Person Payment Processing'], ['boothStartup', 'Booth & Table Startup Costs'],
+      ['pricingFormulas', 'Pricing Formulas'], ['marketingChannels', 'Marketing Channels'],
+    ]);
+    if (page === 'shipping') base.shippingRows = (data.shippingTiers || []).map((t) => ({
+      tier: t.tier, examples: t.examples, weight: t.weight, packaging: t.packaging,
+      packagingCost: t.packagingCostPerUnit, shipCost: t.estShippingCost,
+    }));
+    if (page === 'patterns') base.patternCards = (data.digitalPatternPricing || []).map((p) => ({ type: p.type, priceRange: p.priceRange, example: p.example }));
+    if (page === 'seasonal') base.seasonalCards = this.computeSeasonalCards(data);
+    if (page === 'timeline') base.timelineItems = (data.historicalTimeline || []).map((t) => ({
+      year: t.year, event: t.event, relevance: t.relevance, source: t.source,
+      confLabel: t.confidence, confStyle: this.badgeStyle(this.confColor(t.confidence)),
+    }));
+    if (page === 'premium') Object.assign(base, this.computePremium(data));
+    if (page === 'clearance') Object.assign(base, this.computeClearance(data));
+    if (page === 'copyright') Object.assign(base, this.computeCopyright(data));
+
+    return base;
+  }
+
+  sectionsFrom(obj, defs) {
+    if (!obj) return [];
+    return defs.map(([key, title]) => ({ title, items: obj[key] || [] }));
+  }
+
+  computeHome(data) {
+    const allUpcoming = this.getUpcoming(data.conventions || []);
+    const upcoming = allUpcoming.slice(0, 6);
+    const strongFitSoon = allUpcoming.filter((c) => c.days !== null && c.days <= 90 && (c.fitTags || []).includes('strong-fit'));
+    const seasons = this.getSeasonalStatus(data.seasonalCycle || []);
+    const activeSeason = seasons.find((s) => s.status === 'active');
+    const prepSeasons = seasons.filter((s) => s.status === 'prep');
+    const conventionsByName = new Map((data.conventions || []).map((c) => [c.name, c]));
+    const rankings = data.conventionRankings || {};
+    const nextEvent = allUpcoming[0];
+    const nextStrongFit = strongFitSoon[0];
+
+    const heroNext = nextEvent
+      ? { daysLabel: this.daysUntilLabel(nextEvent.days), name: nextEvent.name, location: nextEvent.location, dateRange: this.formatDateRange(nextEvent.startDate, nextEvent.endDate) }
+      : { daysLabel: '—', name: 'Nothing scheduled', location: '', dateRange: '' };
+
+    const heroStrong = nextStrongFit
+      ? { daysLabel: this.daysUntilLabel(nextStrongFit.days), name: nextStrongFit.name, location: nextStrongFit.location,
+          panelStyle: 'position:relative; overflow:hidden; flex:1; min-width:280px; background:linear-gradient(160deg, oklch(0.3 0.09 300 / 0.4), oklch(0.25 0.032 296)); border:1px solid oklch(0.55 0.14 300 / 0.5); border-radius:16px; padding:26px 28px; box-shadow:inset 0 1px 0 oklch(0.88 0.03 250 / 0.12); filter:drop-shadow(0 0 22px oklch(0.62 0.08 300 / 0.3));' }
+      : { daysLabel: 'None soon', name: 'within the next 90 days', location: '',
+          panelStyle: 'position:relative; overflow:hidden; flex:1; min-width:280px; background:oklch(0.25 0.032 296); border:1px solid oklch(0.45 0.05 290 / 0.5); border-radius:16px; padding:26px 28px; box-shadow:inset 0 1px 0 oklch(0.88 0.03 250 / 0.12); filter:drop-shadow(0 0 20px oklch(0.62 0.07 235 / 0.28));' };
+
+    const statChips = [
+      { label: 'Upcoming Conventions', value: String(allUpcoming.length), caption: 'tracked in this data set' },
+      { label: 'Seasonal Window', value: activeSeason ? activeSeason.season.split(' (')[0] : (prepSeasons[0] ? prepSeasons[0].season.split(' (')[0] + ' prep' : 'None active'), caption: 'see detail below' },
+    ];
+
+    const valueList = (picks) => (picks || []).map((p) => {
+      const c = conventionsByName.get(p.name);
+      return {
+        name: p.name,
+        cost: c && c.costData ? c.costData.tableCost : '',
+        reason: p.reason,
+        barrierColor: c && c.costData ? this.barrierColor(c.costData.barrierLevel) : 'oklch(0.55 0.02 280)',
+      };
+    });
+
+    return {
+      homeMetaNote: data.meta ? data.meta.notes : '',
+      heroNext, heroStrong, statChips,
+      rankingsCaveat: rankings.caveat || '',
+      bestValueCurrent: valueList(rankings.currentInventoryTopPicks),
+      bestValueDark: valueList(rankings.darkFantasyTopPicks),
+      seasonalActive: activeSeason ? { show: true, season: activeSeason.season, themes: activeSeason.themes, pricing: activeSeason.pricing, tip: activeSeason.productionTip } : { show: false },
+      seasonalPrep: prepSeasons.map((s) => ({ season: s.season, weeksAway: s.weeksAway, themes: s.themes })),
+      strongFitList: strongFitSoon.map((c) => ({ name: c.name, daysLabel: this.daysUntilLabel(c.days), location: c.location, dateRange: this.formatDateRange(c.startDate, c.endDate) })),
+      strongFitEmpty: strongFitSoon.length === 0,
+      nextUpList: upcoming.map((c) => ({
+        name: c.name, daysLabel: this.daysUntilLabel(c.days), location: c.location, dateRange: this.formatDateRange(c.startDate, c.endDate),
+        categoryLabel: c.category, categoryStyle: this.badgeStyle(CATEGORY_COLORS[c.category] || 'oklch(0.65 0.02 280)'),
+      })),
+    };
+  }
+
+  computeConventions(data) {
+    const conventions = data.conventions || [];
+    const f = this.state.convFilters;
+    const categories = [...new Set(conventions.map((c) => c.category))].sort();
+    const fitTags = [...new Set(conventions.flatMap((c) => c.fitTags || []))].sort();
+    const BARRIER_ORDER = { low: 0, 'low-medium': 1, medium: 2, 'medium-high': 3, high: 4, unknown: 5 };
+    const barrierRank = (cd) => {
+      if (!cd || !cd.barrierLevel) return 6;
+      const key = cd.barrierLevel.toLowerCase().split(' ')[0];
+      return BARRIER_ORDER[key] ?? 5;
+    };
+
+    let list = conventions
+      .map((c) => ({ ...c, days: this.daysUntil(c.startDate) }))
+      .filter((c) => {
+        if (f.hidePast && c.days !== null && c.days < 0) return false;
+        if (f.category && c.category !== f.category) return false;
+        if (f.fitTag && !(c.fitTags || []).includes(f.fitTag)) return false;
+        if (f.search) {
+          const hay = `${c.name} ${c.location} ${c.note}`.toLowerCase();
+          if (!hay.includes(f.search.toLowerCase())) return false;
+        }
+        return true;
+      });
+    list = list.slice().sort((a, b) => {
+      if (f.sort === 'name') return a.name.localeCompare(b.name);
+      if (f.sort === 'barrier-asc') return barrierRank(a.costData) - barrierRank(b.costData);
+      const da = a.startDate || '9999', db = b.startDate || '9999';
+      return f.sort === 'date-desc' ? db.localeCompare(da) : da.localeCompare(db);
+    });
+
+    const expanded = this.state.expandedConv;
+    const convList = list.map((c) => {
+      const strong = (c.fitTags || []).includes('strong-fit');
+      const isExp = !!expanded[c.name];
+      const cost = c.costData;
+      return {
+        name: c.name,
+        cardStyle: `position:relative; background:oklch(0.25 0.032 296); border:1px solid ${strong ? 'oklch(0.55 0.14 300 / 0.6)' : 'oklch(0.45 0.05 290 / 0.5)'}; border-radius:14px; padding:20px 22px; box-shadow:inset 0 1px 0 oklch(0.88 0.03 250 / 0.1); transition:transform 0.18s ease, box-shadow 0.18s ease; filter:drop-shadow(0 0 18px ${strong ? 'oklch(0.62 0.08 300 / 0.32)' : 'oklch(0.62 0.07 235 / 0.22)'});`,
+        categoryLabel: c.category, categoryStyle: this.badgeStyle(CATEGORY_COLORS[c.category] || 'oklch(0.65 0.02 280)'),
+        location: c.location, scaleLabel: c.scale || '',
+        dateRange: this.formatDateRange(c.startDate, c.endDate),
+        daysLabel: c.startDate ? this.daysUntilLabel(c.days) : 'Date TBD',
+        fitTags: (c.fitTags || []).map((t) => ({ label: t, style: this.badgeStyle(t === 'strong-fit' ? 'oklch(0.78 0.11 85)' : 'oklch(0.65 0.02 280)') })),
+        note: c.note,
+        isExpanded: isExp,
+        toggle: () => this.setState((s) => ({ expandedConv: { ...s.expandedConv, [c.name]: !s.expandedConv[c.name] } })),
+        chevronStyle: `width:6px; height:6px; border-right:1.5px solid oklch(0.6 0.02 280); border-bottom:1.5px solid oklch(0.6 0.02 280); transform:rotate(${isExp ? '225deg' : '-45deg'}); transition:transform 0.15s ease;`,
+        tableCost: cost ? cost.tableCost : '', barrierLabel: cost ? cost.barrierLevel + ' barrier' : '', barrierStyle: cost ? this.badgeStyle(this.barrierColor(cost.barrierLevel)) : '',
+        juryLabel: cost ? (cost.juryRequired === true ? 'Jury/application required' : cost.juryRequired === false ? 'No jury required' : 'Jury status unknown') : '',
+        juryStyle: this.badgeStyle(cost && cost.juryRequired === false ? 'oklch(0.68 0.1 155)' : 'oklch(0.65 0.02 280)'),
+        hasAttendance: !!(cost && cost.attendanceEstimate), attendance: cost ? `${cost.attendanceEstimate} attendance` : '', tagStyle: this.badgeStyle('oklch(0.65 0.02 280)'),
+        confLabel: cost ? cost.confidence : '', confStyle: cost ? this.badgeStyle(this.confColor(cost.confidence)) : '',
+        hasAppWindow: !!c.applicationWindow, appOpens: c.applicationWindow ? c.applicationWindow.opens : '', appCloses: c.applicationWindow ? c.applicationWindow.closes : '', appMechanism: c.applicationWindow ? c.applicationWindow.mechanism : '',
+      };
+    });
+
+    return {
+      convSearchValue: f.search, convCategoryValue: f.category, convFitValue: f.fitTag, convSortValue: f.sort, convHidePast: f.hidePast,
+      convCategoryOptions: [{ value: '', label: 'All categories' }, ...categories.map((c) => ({ value: c, label: c }))],
+      convFitOptions: [{ value: '', label: 'All fit tags' }, ...fitTags.map((t) => ({ value: t, label: t }))],
+      convCount: `${convList.length} convention${convList.length === 1 ? '' : 's'}`,
+      convList,
+      setConvSearch: (e) => this.setState((s) => ({ convFilters: { ...s.convFilters, search: e.target.value } })),
+      setConvCategory: (e) => this.setState((s) => ({ convFilters: { ...s.convFilters, category: e.target.value } })),
+      setConvFit: (e) => this.setState((s) => ({ convFilters: { ...s.convFilters, fitTag: e.target.value } })),
+      setConvSort: (e) => this.setState((s) => ({ convFilters: { ...s.convFilters, sort: e.target.value } })),
+      toggleConvHidePast: (e) => this.setState((s) => ({ convFilters: { ...s.convFilters, hidePast: e.target.checked } })),
+    };
+  }
+
+  computeCompetitors(data) {
+    const competitors = data.competitors || [];
+    const f = this.state.compFilters;
+    const niches = [...new Set(competitors.map((c) => c.niche))].sort();
+    const list = competitors.filter((c) => {
+      if (f.niche && c.niche !== f.niche) return false;
+      if (f.search) {
+        const hay = `${c.name} ${c.platform} ${c.note}`.toLowerCase();
+        if (!hay.includes(f.search.toLowerCase())) return false;
+      }
+      return true;
+    });
+    return {
+      compSearchValue: f.search, compNicheValue: f.niche,
+      compNicheOptions: [{ value: '', label: 'All niches' }, ...niches.map((n) => ({ value: n, label: n }))],
+      compList: list.map((c) => ({ name: c.name, platform: c.platform, priceRange: c.priceRange, niche: c.niche, note: c.note, hasUrl: !!c.url, url: c.url || '#' })),
+      setCompSearch: (e) => this.setState((s) => ({ compFilters: { ...s.compFilters, search: e.target.value } })),
+      setCompNiche: (e) => this.setState((s) => ({ compFilters: { ...s.compFilters, niche: e.target.value } })),
+    };
+  }
+
+  computeSeasonalCards(data) {
+    const seasons = this.getSeasonalStatus(data.seasonalCycle || []);
+    return seasons.map((s) => ({
+      season: s.season, themes: s.themes, pricing: s.pricing, tip: s.productionTip,
+      cardStyle: `background:${s.status === 'active' ? 'linear-gradient(160deg, oklch(0.3 0.09 20 / 0.35), oklch(0.25 0.032 296))' : 'oklch(0.25 0.032 296)'}; border:1px solid ${s.status === 'active' ? 'oklch(0.55 0.16 18 / 0.5)' : 'oklch(0.45 0.05 290 / 0.5)'}; border-radius:14px; padding:20px 22px; box-shadow:inset 0 1px 0 oklch(0.88 0.03 250 / 0.1); transition:transform 0.18s ease, box-shadow 0.18s ease; filter:drop-shadow(0 0 18px ${s.status === 'active' ? 'oklch(0.68 0.1 20 / 0.3)' : 'oklch(0.62 0.07 235 / 0.2)'});`,
+      hasBadge: s.status === 'active' || s.status === 'prep',
+      badgeLabel: s.status === 'active' ? 'Active now' : 'Prep window',
+      badgeStyle: this.badgeStyle(s.status === 'active' ? 'oklch(0.68 0.13 20)' : 'oklch(0.75 0.12 70)'),
+    }));
+  }
+
+  computePremium(data) {
+    const r = data.removablePartsPremium || {};
+    const wix = data.wixPricing || [];
+    return {
+      premiumPrice: r.confirmedPricePoint, premiumConfirmed: !!r.categoryExists,
+      premiumEvidence: r.categoryEvidence, premiumNote: r.confidenceNote,
+      wixRows: wix.map((w) => ({
+        plan: w.plan, cost: w.monthlyCostAnnualBilling,
+        ecomLabel: w.ecommerceEnabled ? 'Ecommerce' : 'No ecommerce', ecomStyle: this.badgeStyle(w.ecommerceEnabled ? 'oklch(0.68 0.1 155)' : 'oklch(0.55 0.02 280)'),
+        note: w.note || '',
+      })),
+    };
+  }
+
+  computeClearance(data) {
+    const strategies = data.clearingOldInventory || [];
+    const q = this.state.clearSearch.trim().toLowerCase();
+    const list = strategies.filter((s) => !q || `${s.strategy} ${s.howItWorks} ${s.note}`.toLowerCase().includes(q));
+    return {
+      clearSearchValue: this.state.clearSearch,
+      clearList: list.map((s) => ({ strategy: s.strategy, pricing: s.pricing, howItWorks: s.howItWorks, note: s.note })),
+      setClearSearch: (e) => this.setState({ clearSearch: e.target.value }),
+    };
+  }
+
+  computeCopyright(data) {
+    const c = data.copyrightNotes || {};
+    return {
+      copyrightSafe: (c.generallySafe || []).map((t) => ({ text: t })),
+      copyrightLovecraft: c.lovecraftSpecific || '',
+      copyrightRisk: c.riskEvidence || '',
+    };
+  }
+}
+</script>
+</body>
+</html>

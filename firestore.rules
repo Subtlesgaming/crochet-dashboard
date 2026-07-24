@@ -1,0 +1,15 @@
+rules_version = '2';
+
+// Paste this into: Firebase Console -> Firestore Database -> Rules -> Publish.
+// Single-user app -- "signed in" is the only gate needed, no per-document
+// ownership field required since only one account will ever exist.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /inventory/{itemId} {
+      allow read, write: if request.auth != null;
+    }
+    match /sales/{saleId} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}

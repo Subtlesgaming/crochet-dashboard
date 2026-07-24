@@ -1,0 +1,1412 @@
+{
+  "meta": {
+    "title": "Crochet Plushie Business Dashboard",
+    "owner": "Kurt",
+    "lastUpdated": "2026-07-10",
+    "notes": "Source data compiled via research through July 2026. Re-verify time-sensitive figures (postage rates, platform pricing, unconfirmed convention dates) periodically. Convention cost/barrier-to-entry data added 2026-07-10 via vendor-page research -- many table costs are gated behind an application step and could not be confirmed publicly; re-verify directly with organizers before budgeting. Product-demand research (bestsellers, price clustering, bundling, under-represented items) added 2026-07-10 -- mostly craft-business blog consensus rather than raw sales data; several items are flagged as single-source or outright data gaps."
+  },
+  "conventions": [
+    {
+      "name": "Anime Los Angeles",
+      "location": "Long Beach, CA",
+      "startDate": "2026-01-08",
+      "endDate": "2026-01-11",
+      "category": "anime",
+      "scale": "small-medium",
+      "fitTags": [
+        "fandom"
+      ],
+      "note": "Community-focused, manageable size. Artist Alley rules explicitly allow plushies. Good low-pressure test venue before bigger cons.",
+      "costData": {
+        "tableCost": "~$550 (2023 figure; trending up each year)",
+        "juryRequired": false,
+        "attendanceEstimate": null,
+        "barrierLevel": "Medium-High",
+        "confidence": "Low",
+        "source": "artistsalleyconfidential.com/conventions/anime-los-angeles/"
+      },
+      "applicationWindow": {
+        "opens": "Fall before the show (~late Sep, 10am PT in a recent cycle)",
+        "closes": "Not found -- lottery window, then leftover booths sold open",
+        "mechanism": "Lottery during a set window",
+        "confidence": "Low",
+        "source": "animelosangeles.org/exhibitors/artist-alley (site blocked automated checks -- watch their site/X around Aug-Sep)"
+      }
+    },
+    {
+      "name": "StocktonCon Winter",
+      "location": "Stockton, CA",
+      "startDate": "2026-02-28",
+      "endDate": "2026-03-01",
+      "category": "general",
+      "scale": "small",
+      "fitTags": [
+        "general"
+      ],
+      "note": "Regional, family-friendly, broad pop-culture mix rather than anime-specific.",
+      "costData": {
+        "tableCost": "Not publicly posted",
+        "juryRequired": null,
+        "attendanceEstimate": null,
+        "barrierLevel": "Unknown",
+        "confidence": "Low",
+        "source": "stocktoncon.com/winter-exhibitors"
+      },
+      "applicationWindow": {
+        "opens": "Rolling",
+        "closes": "Until sold out (Winter 2026 marked SOLD OUT)",
+        "mechanism": "FCFS registration form with organizer approval",
+        "confidence": "Low",
+        "source": "stocktoncon.com/winter-exhibitors"
+      }
+    },
+    {
+      "name": "Sac Comic-Con",
+      "location": "Sacramento, CA",
+      "startDate": "2026-03-21",
+      "endDate": "2026-03-22",
+      "category": "comics",
+      "scale": "small-medium",
+      "fitTags": [
+        "general"
+      ],
+      "note": "Comics-focused (not anime-specific), 200+ exhibitor tables, smaller/calmer than SacAnime.",
+      "costData": {
+        "tableCost": "$175 flat (8x8 space, 1 table, 2 badges)",
+        "juryRequired": false,
+        "attendanceEstimate": null,
+        "barrierLevel": "Low",
+        "confidence": "Medium",
+        "source": "sac-con.com/?page_id=47"
+      },
+      "applicationWindow": {
+        "opens": "A few months before the show (run by SacAnime org)",
+        "closes": "Before the show",
+        "mechanism": "Juried by artist alley team (comic-focused); vendor spaces $300/8ft",
+        "confidence": "Medium",
+        "source": "sac-con.com/?page_id=47"
+      }
+    },
+    {
+      "name": "WonderCon Anaheim",
+      "location": "Anaheim, CA",
+      "startDate": "2026-03-27",
+      "endDate": "2026-03-29",
+      "category": "comics",
+      "scale": "large",
+      "fitTags": [
+        "general",
+        "seasonal-spring"
+      ],
+      "note": "Broad comics audience, not anime-specific. Good fit for Easter/spring pastel stock and general/original amigurumi.",
+      "costData": {
+        "tableCost": "Not publicly posted",
+        "juryRequired": true,
+        "attendanceEstimate": "~55,000-60,000 (unofficial estimate)",
+        "barrierLevel": "High",
+        "confidence": "Low",
+        "source": "comic-con.org/wc/things-to-do/exhibit-hall/artists-alley/"
+      },
+      "applicationWindow": {
+        "opens": "Fall of prior year",
+        "closes": "Placement concluded by ~Dec; waitlist open year-round",
+        "mechanism": "Juried selection; waitlist after",
+        "confidence": "Medium-High",
+        "source": "comic-con.org/wc Artists Alley page"
+      }
+    },
+    {
+      "name": "FandomCon",
+      "location": "San Jose, CA",
+      "startDate": "2026-04-10",
+      "endDate": "2026-04-12",
+      "category": "multi",
+      "scale": "medium",
+      "fitTags": [
+        "fandom",
+        "dark-fantasy"
+      ],
+      "note": "Explicitly covers horror as a category alongside anime/comics/gaming -- a Lovecraftian/dark fantasy line could plausibly fit this floor too.",
+      "costData": {
+        "tableCost": "Not disclosed until after approval (invoice-based)",
+        "juryRequired": true,
+        "attendanceEstimate": null,
+        "barrierLevel": "Unknown",
+        "confidence": "Low",
+        "source": "fandomcon.com/silicon-valley/artist-alley/"
+      },
+      "applicationWindow": {
+        "opens": "Rolling (Eventeny)",
+        "closes": "Apr 5, 2026 (5 days before show) in the 2026 cycle",
+        "mechanism": "Application + organizer approval, effectively FCFS until full",
+        "confidence": "Medium",
+        "source": "eventeny.com/events/vendor/?id=32311"
+      }
+    },
+    {
+      "name": "Original Renaissance Pleasure Faire",
+      "location": "Irwindale, CA",
+      "startDate": "2026-04-04",
+      "endDate": "2026-05-17",
+      "recurrence": "Weekends only",
+      "category": "renfaire",
+      "scale": "large",
+      "fitTags": [
+        "dark-fantasy",
+        "strong-fit"
+      ],
+      "note": "STRONG FIT: 125+ artisan vendors selling handcrafted fantasy goods -- leather witch hats, dragon bone tails, chainmaille jewelry. SoCal's largest Ren Faire (200,000+ annual attendees). More natural home for fantasy-themed crochet than any comic con.",
+      "costData": {
+        "tableCost": "Not publicly posted (apply via email with product photos)",
+        "juryRequired": true,
+        "attendanceEstimate": "200,000+ (season)",
+        "barrierLevel": "Medium-High",
+        "confidence": "Low",
+        "source": "renfair.com/socal/join-us/"
+      },
+      "applicationWindow": {
+        "opens": "Year-round rolling -- no open/close cycle",
+        "closes": "Juried until filled; late applicants waitlisted on request",
+        "mechanism": "Juried; booth sketches + product photos to rpfmarketplace@renfair.com",
+        "confidence": "High",
+        "source": "renfair.com/socal/join-us"
+      }
+    },
+    {
+      "name": "Comic Con Oakland",
+      "location": "Oakland, CA",
+      "startDate": "2026-05-09",
+      "endDate": "2026-05-10",
+      "category": "comics",
+      "scale": "small-new",
+      "fitTags": [
+        "general"
+      ],
+      "note": "Bay Area's first comic con in over a decade -- brand new event, untested turnout, strong indie-creator emphasis.",
+      "costData": {
+        "tableCost": "Not found (new event, application page still building out)",
+        "juryRequired": null,
+        "attendanceEstimate": null,
+        "barrierLevel": "Unknown",
+        "confidence": "Low",
+        "source": "comicconoakland.com/artist-alley/"
+      },
+      "applicationWindow": {
+        "opens": "Not found",
+        "closes": "2027 Artist Alley & Exhibitor apps already waitlist-only as of mid-2026",
+        "mechanism": "Google Form application; waitlist when full",
+        "confidence": "Medium",
+        "source": "comicconoakland.com/applications"
+      }
+    },
+    {
+      "name": "FanimeCon",
+      "location": "San Jose, CA",
+      "startDate": "2026-05-22",
+      "endDate": "2026-05-25",
+      "category": "anime",
+      "scale": "large",
+      "fitTags": [
+        "fandom",
+        "seasonal-spring"
+      ],
+      "note": "NorCal's largest anime con. Falls in the Easter/spring pastel seasonal window.",
+      "costData": {
+        "tableCost": "$300/table (badge not included)",
+        "juryRequired": true,
+        "attendanceEstimate": "27,500 (2026)",
+        "barrierLevel": "Medium",
+        "confidence": "High",
+        "source": "apps.fanime.com/2026/artistinfo/"
+      },
+      "applicationWindow": {
+        "opens": "Nov 8, 2025, 12pm PT for the 2026 show (account creation Nov 1) -- expect similar timing for 2027. Be ready at noon on opening day.",
+        "closes": "Capped at 1,000 applications -- closes when the cap is hit",
+        "mechanism": "Juried portfolio review (4 art samples); results in 7-10 weeks; ordered waitlist",
+        "confidence": "High",
+        "source": "apps.fanime.com/2026/artistinfo"
+      }
+    },
+    {
+      "name": "Sinister Creature Con",
+      "location": "Sacramento, CA (Scottish Rite Center)",
+      "startDate": "2026-06-20",
+      "endDate": "2026-06-21",
+      "category": "horror",
+      "scale": "medium",
+      "fitTags": [
+        "dark-fantasy",
+        "strong-fit"
+      ],
+      "note": "STRONG FIT: Northern California's dedicated Horror & SFX convention. Vendors sell horror collectibles/oddities. Far more natural venue for cryptid/cosmic-horror plushies than any anime con.",
+      "costData": {
+        "tableCost": "Not publicly posted (Google Form application, price sent after)",
+        "juryRequired": true,
+        "attendanceEstimate": null,
+        "barrierLevel": "Unknown (likely Medium)",
+        "confidence": "Low",
+        "source": "sinistercreaturecon.com vendor application"
+      },
+      "applicationWindow": {
+        "opens": "Rolling -- apps open several months out",
+        "closes": "Not found",
+        "mechanism": "Curated -- 'not first come, first served'; every vendor evaluated for fit; tables non-refundable",
+        "confidence": "Medium",
+        "source": "sinistercreaturecon.com vendor application"
+      }
+    },
+    {
+      "name": "Anime Expo",
+      "location": "Los Angeles, CA",
+      "startDate": "2026-07-02",
+      "endDate": "2026-07-05",
+      "category": "anime",
+      "scale": "largest",
+      "fitTags": [
+        "fandom"
+      ],
+      "note": "Largest CA anime audience by far (100,000+ attendees). Best fit for fandom/character pieces.",
+      "costData": {
+        "tableCost": "Not publicly posted (private purchase link sent to lottery winners)",
+        "juryRequired": true,
+        "attendanceEstimate": "410,000 (2025, record)",
+        "barrierLevel": "High",
+        "confidence": "Medium",
+        "source": "animenewsnetwork.com/news/2025-07-15"
+      },
+      "applicationWindow": {
+        "opens": "~Nov (open through end of the prior year)",
+        "closes": "Dec 18, 9am in the 2026 cycle (one listing showed a Feb 9 extension); lottery results emailed Jan",
+        "mechanism": "Curated lottery: jury screen by SPJA, then lottery; non-winners auto-waitlisted",
+        "confidence": "High",
+        "source": "anime-expo.org/ax/get-involved/artist-alley"
+      }
+    },
+    {
+      "name": "StocktonCon Summer",
+      "location": "Stockton, CA",
+      "startDate": "2026-07-11",
+      "endDate": "2026-07-12",
+      "category": "general",
+      "scale": "small",
+      "fitTags": [
+        "general"
+      ],
+      "note": "Sibling event to StocktonCon Winter, same regional/family-friendly audience.",
+      "costData": {
+        "tableCost": "Not publicly posted",
+        "juryRequired": null,
+        "attendanceEstimate": null,
+        "barrierLevel": "Unknown",
+        "confidence": "Low",
+        "source": "stocktoncon.com/summer-exhibitors"
+      },
+      "applicationWindow": {
+        "opens": "Rolling",
+        "closes": "Until sold out",
+        "mechanism": "FCFS registration form with organizer approval",
+        "confidence": "Low",
+        "source": "stocktoncon.com/summer-exhibitors"
+      }
+    },
+    {
+      "name": "Central Coast Renaissance Festival",
+      "location": "San Luis Obispo, CA",
+      "startDate": "2026-07-18",
+      "endDate": "2026-07-19",
+      "category": "renfaire",
+      "scale": "medium",
+      "fitTags": [
+        "dark-fantasy"
+      ],
+      "note": "Smaller/regional artisan market, Elizabethan theme, juried craft vendor applications.",
+      "costData": {
+        "tableCost": "Not publicly posted",
+        "juryRequired": true,
+        "attendanceEstimate": null,
+        "barrierLevel": "Medium",
+        "confidence": "Low",
+        "source": "ccrenfaire.com/vendor-criteria-and-general-rules/"
+      },
+      "applicationWindow": {
+        "opens": "Rolling -- application PDFs posted each cycle",
+        "closes": "Not found",
+        "mechanism": "Vendor coordinator review; priority to handcrafted, regional, Elizabethan-appropriate goods",
+        "confidence": "Medium",
+        "source": "ccrenfaire.com/vendor-criteria-and-general-rules"
+      }
+    },
+    {
+      "name": "OffKai Expo",
+      "location": "San Jose, CA",
+      "startDate": "2026-07-24",
+      "endDate": "2026-07-26",
+      "category": "anime",
+      "scale": "medium",
+      "fitTags": [
+        "fandom"
+      ],
+      "note": "Anime-focused Bay Area con, adds another summer option near FanimeCon/GalaxyCon.",
+      "costData": {
+        "tableCost": "Not found",
+        "juryRequired": null,
+        "attendanceEstimate": null,
+        "barrierLevel": "Unknown",
+        "confidence": "Low",
+        "source": "offkaiexpo.com/vendors/artist-alley/"
+      },
+      "applicationWindow": {
+        "opens": "Dec 1 (per recent cycle announcement)",
+        "closes": "Dec 21; results early Feb",
+        "mechanism": "Jury review; window announced post-con each year",
+        "confidence": "Medium-High",
+        "source": "offkaiexpo.com/vendors"
+      }
+    },
+    {
+      "name": "San Diego Comic-Con",
+      "location": "San Diego, CA",
+      "startDate": "2026-07-23",
+      "endDate": "2026-07-26",
+      "category": "comics",
+      "scale": "largest",
+      "fitTags": [
+        "general"
+      ],
+      "note": "Broader pop-culture crowd than anime-specific, less reliably anime-fandom-driven. Best fit for general/original designs.",
+      "costData": {
+        "tableCost": "~$500 (Small Press tier; Artist Alley half-table price itself not published)",
+        "juryRequired": true,
+        "attendanceEstimate": "130,000+ (capped, sells out in ~90 min)",
+        "barrierLevel": "High",
+        "confidence": "Medium",
+        "source": "artistsalleyconfidential.com/conventions/san-diego-comic-con-sdcc/"
+      },
+      "applicationWindow": {
+        "opens": "Small Press: instructions emailed in the fall; work sample required -- get on their mailing list now",
+        "closes": "Jury meets each fall",
+        "mechanism": "Juried (Small Press); exhibit-hall booths have a multi-year waitlist/renewal system",
+        "confidence": "Medium",
+        "source": "comic-con.org/cc Small Press page"
+      }
+    },
+    {
+      "name": "Comic Con Revolution",
+      "location": "Ontario, CA",
+      "startDate": "2026-08-22",
+      "endDate": "2026-08-23",
+      "category": "comics",
+      "scale": "medium",
+      "fitTags": [
+        "general"
+      ],
+      "note": "Welcoming community atmosphere, large artist alley, not anime-specific.",
+      "costData": {
+        "tableCost": "Not found (contact organizer directly)",
+        "juryRequired": false,
+        "attendanceEstimate": null,
+        "barrierLevel": "Unknown",
+        "confidence": "Low",
+        "source": "comicconrevolution.com/ontario/artist-alley/"
+      },
+      "applicationWindow": {
+        "opens": "Rolling -- form + direct booking with organizer",
+        "closes": "Sells out by fall of the prior year",
+        "mechanism": "FCFS after contact/approval (email James Ross, Atomic Crush Events)",
+        "confidence": "Medium",
+        "source": "comicconrevolution.com/ontario/artist-alley"
+      }
+    },
+    {
+      "name": "GalaxyCon San Jose",
+      "location": "San Jose, CA",
+      "startDate": "2026-08-28",
+      "endDate": "2026-08-30",
+      "category": "multi",
+      "scale": "medium-large",
+      "fitTags": [
+        "general"
+      ],
+      "note": "Touring convention brand (celebrity guests, gaming, cosplay), not anime-specific.",
+      "costData": {
+        "tableCost": "Artist Alley table $499; booths $1,350+",
+        "juryRequired": true,
+        "attendanceEstimate": null,
+        "barrierLevel": "Medium-High",
+        "confidence": "Medium-High",
+        "source": "eventeny.com/events/vendor/?id=36045"
+      },
+      "applicationWindow": {
+        "opens": "Rolling (Eventeny)",
+        "closes": "Listed deadline Aug 30, 2026 -- i.e. open until sold out",
+        "mechanism": "Application + approval email",
+        "confidence": "Medium",
+        "source": "eventeny.com/events/vendor/?id=36045"
+      }
+    },
+    {
+      "name": "SacAnime",
+      "location": "Sacramento, CA",
+      "startDate": "2026-09-04",
+      "endDate": "2026-09-06",
+      "category": "anime",
+      "scale": "large",
+      "fitTags": [
+        "fandom",
+        "seasonal-halloween"
+      ],
+      "note": "Falls right at Halloween-prep start -- dual-purpose stock (spooky-cute + anime fandom) both plausible.",
+      "costData": {
+        "tableCost": "~$200 (8ft table, per recent attendee report; not officially posted)",
+        "juryRequired": false,
+        "attendanceEstimate": null,
+        "barrierLevel": "Low-Medium",
+        "confidence": "Low",
+        "source": "sacanime.com/artist-alley-registration/"
+      },
+      "applicationWindow": {
+        "opens": "A few months before each show (Winter apps were open in late fall)",
+        "closes": "Summer 2026 apps ended by early Jul 2026",
+        "mechanism": "Juried; favors local/diverse artists; no public waitlist -- replacements emailed directly",
+        "confidence": "High",
+        "source": "sacanime.com/artist-alley-registration"
+      }
+    },
+    {
+      "name": "Long Beach Comic Con",
+      "location": "Long Beach, CA",
+      "startDate": "2026-09-05",
+      "endDate": "2026-09-06",
+      "category": "comics",
+      "scale": "medium-large",
+      "fitTags": [
+        "fandom",
+        "dark-fantasy"
+      ],
+      "note": "Historically branded 'Long Beach Comic & Horror Con' -- strong horror/genre emphasis alongside mainstream comics. One of the region's largest Artist Alleys.",
+      "costData": {
+        "tableCost": "~$300 (historical, 2016 figure; not confirmed current)",
+        "juryRequired": null,
+        "attendanceEstimate": null,
+        "barrierLevel": "Medium",
+        "confidence": "Low",
+        "source": "artistsalleyconfidential.com/conventions/long-beach-comic-con/"
+      },
+      "applicationWindow": {
+        "opens": "Rolling (open now)",
+        "closes": "Jul 10, 2026, 11:59pm; status notices by Jul 24",
+        "mechanism": "Application review then payment; no AI art; email before paying to confirm availability",
+        "confidence": "High",
+        "source": "longbeachcomiccon.com/exhibitor-artists"
+      }
+    },
+    {
+      "name": "Northern California Renaissance Faire",
+      "location": "Hollister, CA (approx.)",
+      "startDate": "2026-09-19",
+      "endDate": "2026-10-25",
+      "recurrence": "Weekends only",
+      "category": "renfaire",
+      "scale": "large",
+      "fitTags": [
+        "dark-fantasy",
+        "seasonal-halloween",
+        "strong-fit"
+      ],
+      "note": "STRONG FIT: long run stretching directly into Halloween season. NorCal's major Ren Faire -- fantasy/medieval artisan crowd likely receptive to a gothic/cryptid product line.",
+      "costData": {
+        "tableCost": "Marketplace: 15% of sales ($300 min upfront) OR Guest Artist program $395+/weekend (tent included)",
+        "juryRequired": true,
+        "attendanceEstimate": "150,000+ (season)",
+        "barrierLevel": "Medium-High",
+        "confidence": "High",
+        "source": "norcalrenfaire.com/participation + /guest-artists"
+      },
+      "applicationWindow": {
+        "opens": "Rolling -- email application with photos",
+        "closes": "Not found",
+        "mechanism": "Marketplace team review for era-appropriateness/quality (not formally juried)",
+        "confidence": "High",
+        "source": "norcalrenfaire.com/guest-artists"
+      }
+    },
+    {
+      "name": "Chico Anime and Pop Expo",
+      "location": "Chico, CA (Silver Dollar Fairgrounds)",
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-18",
+      "category": "anime",
+      "scale": "small-new",
+      "fitTags": [
+        "fandom",
+        "seasonal-halloween"
+      ],
+      "note": "Newest con on this list (2nd year, started 2025). Grassroots, family-friendly. Falls squarely in Halloween-season window.",
+      "costData": {
+        "tableCost": "Not found (currently a waitlist, no open pricing)",
+        "juryRequired": null,
+        "attendanceEstimate": null,
+        "barrierLevel": "Unknown",
+        "confidence": "Low",
+        "source": "chicocapex.com"
+      },
+      "applicationWindow": {
+        "opens": "Not found",
+        "closes": "Artist Alley already FULL for 2026; waitlist via Google Form",
+        "mechanism": "FCFS/approval; waitlist when full",
+        "confidence": "Medium",
+        "source": "chicocapex.com"
+      }
+    },
+    {
+      "name": "Sinister Halloween Con",
+      "location": "Sacramento, CA (Scottish Rite Center)",
+      "startDate": "2026-10-18",
+      "endDate": "2026-10-19",
+      "category": "horror",
+      "scale": "medium",
+      "fitTags": [
+        "dark-fantasy",
+        "seasonal-halloween",
+        "strong-fit"
+      ],
+      "note": "STRONG FIT: fall sibling event to Sinister Creature Con. Same horror-dedicated audience, timed for Halloween with 100+ vendors selling 'scary goods'.",
+      "costData": {
+        "tableCost": "Not publicly posted",
+        "juryRequired": true,
+        "attendanceEstimate": null,
+        "barrierLevel": "Unknown",
+        "confidence": "Low",
+        "source": "sacramento365.com/event/sinister-halloween-con/"
+      },
+      "applicationWindow": {
+        "opens": "Rolling -- same organizer/application page as Sinister Creature Con",
+        "closes": "Not found",
+        "mechanism": "Curated, not FCFS",
+        "confidence": "Low",
+        "source": "sinistercreaturecon.com vendor application"
+      }
+    },
+    {
+      "name": "L.A. Comic Con",
+      "location": "Los Angeles, CA",
+      "startDate": "2026-10-30",
+      "endDate": "2026-11-01",
+      "category": "comics",
+      "scale": "large",
+      "fitTags": [
+        "general",
+        "seasonal-halloween"
+      ],
+      "note": "Large West Coast con (100,000+ sq ft), explicitly lists plushies as welcome Artist Alley merchandise, timed right at Halloween.",
+      "costData": {
+        "tableCost": "Not publicly posted (invoice sent after approval)",
+        "juryRequired": false,
+        "attendanceEstimate": "131,000 (2025, record; up from 126,000 in 2024)",
+        "barrierLevel": "Medium",
+        "confidence": "Medium",
+        "source": "comicconla.com/artistalley"
+      },
+      "applicationWindow": {
+        "opens": "Open now (rolling)",
+        "closes": "Until sold out",
+        "mechanism": "Application approval, then FCFS by completed payment (invoice due 7-10 days); AI-art policy",
+        "confidence": "High",
+        "source": "comicconla.com/artistalley"
+      }
+    },
+    {
+      "name": "Escondido Renaissance Faire",
+      "location": "Escondido, CA",
+      "startDate": null,
+      "endDate": null,
+      "category": "renfaire",
+      "scale": "small",
+      "fitTags": [
+        "dark-fantasy"
+      ],
+      "note": "2026 dates not yet confirmed at time of research. Well-rated (4.7/5). Check closer to season.",
+      "costData": {
+        "tableCost": "Not found",
+        "juryRequired": true,
+        "attendanceEstimate": null,
+        "barrierLevel": "Unknown",
+        "confidence": "Low",
+        "source": "Spring Esco 2026 Vendor Application PDF"
+      }
+    },
+    {
+      "name": "Much Ado About Sebastopol",
+      "location": "Sebastopol, CA",
+      "startDate": null,
+      "endDate": null,
+      "category": "renfaire",
+      "scale": "small-boutique",
+      "fitTags": [
+        "dark-fantasy"
+      ],
+      "note": "2026 dates not yet confirmed at time of research. Top-rated (4.9/5), boutique scale.",
+      "costData": {
+        "tableCost": "Not found",
+        "juryRequired": null,
+        "attendanceEstimate": null,
+        "barrierLevel": "Unknown",
+        "confidence": "Low",
+        "source": "No vendor pricing page indexed"
+      }
+    }
+  ],
+  "shippingTiers": [
+    {
+      "tier": 1,
+      "examples": "Keychains, charms (fruit, sea creatures)",
+      "weight": "Under 2 oz",
+      "packaging": "Uline 6x9 poly mailer (S-3352)",
+      "packagingCostPerUnit": "$0.13-$0.17",
+      "packagingSource": "https://www.uline.com/Product/Detail/S-3352/Poly-Mailers/Tear-Proof-Polyethylene-Mailers-with-Tear-Strip-6-x-9",
+      "estShippingCost": "$5-$6 (Ground Advantage, general estimate)"
+    },
+    {
+      "tier": 2,
+      "examples": "Small plushies (gummy bears, mini chickens, small octopi)",
+      "weight": "2-6 oz",
+      "packaging": "Uline 6x9 or 9x12 poly mailer (S-3352 / S-3353)",
+      "packagingCostPerUnit": "$0.17-$0.22",
+      "packagingSource": "https://www.uline.com/Product/Detail/S-3353/Poly-Mailers/Tear-Proof-Polyethylene-Mailers-with-Tear-Strip-9-x-12",
+      "estShippingCost": "$6-$8 (general estimate)"
+    },
+    {
+      "tier": 3,
+      "examples": "Medium plushies (chibi dolls, jellyfish, market bags)",
+      "weight": "6-16 oz",
+      "packaging": "Uline #2 bubble mailer 8.5x12 (S-7545)",
+      "packagingCostPerUnit": "$0.36 flat",
+      "packagingSource": "https://www.uline.com/Product/Detail/S-7545/Self-Seal-Bubble-Mailers/Uline-Bubble-Lined-Polyolefin-Mailers-2-8-1-2-x-12",
+      "estShippingCost": "$8-$11 (near Ground Advantage ceiling)"
+    },
+    {
+      "tier": 4,
+      "examples": "Large pieces (axolotl, giant octopus)",
+      "weight": "1-3+ lbs",
+      "packaging": "USPS Priority Mail Flat Rate Small/Medium Box (free)",
+      "packagingCostPerUnit": "$0",
+      "packagingSource": "https://www.usps.com/ship/priority-mail.htm",
+      "estShippingCost": "Small box: $13.66 retail (~$12.10 commercial); Medium box: $24.79 retail"
+    }
+  ],
+  "competitors": [
+    {
+      "name": "Nyna Elaine Crochets",
+      "platform": "Own web shop + IG/TikTok/YouTube",
+      "priceRange": "$14-$135",
+      "niche": "general",
+      "url": "https://nynaelaine.com/collections/crochet-plushies",
+      "note": "Real published price list across small to large/detailed pieces; similar materials to your booth (Bernat Blanket Yarn, safety eyes)."
+    },
+    {
+      "name": "BardicTrinkets (Caitlin)",
+      "platform": "Etsy (pattern shop, not finished goods)",
+      "priceRange": "$6-$8 single patterns, $10-$40 bundles",
+      "niche": "dark-fantasy-adjacent",
+      "url": "https://www.etsy.com/shop/BardicTrinkets",
+      "note": "6,264 sales, 5.0 stars, Star Seller. Has a 'Baby Cthulhu' pattern at $6. Reviews show buyers use patterns to bulk-produce for markets/conventions."
+    },
+    {
+      "name": "pandiecrochet (Pandie)",
+      "platform": "Etsy + Instagram + Ribblr",
+      "priceRange": "$3.50-$12 patterns",
+      "niche": "fandom",
+      "url": "https://www.etsy.com/shop/pandiecrochet",
+      "note": "Italy-based, 2k+ sales, 4.9 stars. Catalog spans Hazbin Hotel, Pokemon, Ghibli, Hollow Knight, League of Legends."
+    },
+    {
+      "name": "Glamacrylics&Crochet",
+      "platform": "Own website (Wix) + Instagram + TikTok",
+      "priceRange": "Patterns ~$5-$10; finished goods: small charms $30-$40, mid-size $180, large custom dolls $300-$425",
+      "niche": "general/premium custom",
+      "url": "https://www.glamacrylicscrocheting.com/shop",
+      "note": "Confirmed built on Wix with a custom domain. Highest finished-goods price ceiling found in this research -- worth using as a reference for premium/custom positioning."
+    },
+    {
+      "name": "rinmeow21 (Rin)",
+      "platform": "Etsy + Ko-fi (patterns), Instagram DM (finished plushies, 164K followers)",
+      "priceRange": "Not fully sourced -- one Ko-fi pattern shows 1,011 sold",
+      "niche": "fandom",
+      "url": "https://www.etsy.com/shop/rinmeow21",
+      "note": "Splits business across 3 platforms -- finished physical plushies sold only via Instagram DM, not visible on Etsy."
+    }
+  ],
+  "digitalPatternPricing": [
+    {
+      "type": "Single character/animal pattern (simple)",
+      "priceRange": "$5-$9",
+      "example": "Dracula pattern $5; Max (Where the Wild Things Are) $6; Anne of Green Gables $8"
+    },
+    {
+      "type": "Single character pattern (dark-fantasy relevant)",
+      "priceRange": "$6-$8",
+      "example": "BardicTrinkets 'Baby Cthulhu' pattern at $6"
+    },
+    {
+      "type": "Multi-character sets / couples",
+      "priceRange": "$10-$21",
+      "example": "Little Women (4 characters) $10; Winnie-the-Pooh full set $21"
+    },
+    {
+      "type": "Pattern bundles (10-300+ patterns)",
+      "priceRange": "$10-$40",
+      "example": "BardicTrinkets bundles"
+    },
+    {
+      "type": "Free/loss-leader bundles",
+      "priceRange": "Free-$2",
+      "example": "'100+ FREE amigurumi patterns' ZIP downloads, used as lead-gen"
+    }
+  ],
+  "seasonalCycle": [
+    {
+      "season": "Halloween (Sept-Oct)",
+      "themes": "Pumpkins, black cats, ghosts, spooky-cute characters",
+      "pricing": "Ornaments $6-$14, pumpkins $8-$22",
+      "productionTip": "Release/stock 6-8 weeks ahead (start production in August)"
+    },
+    {
+      "season": "Christmas (Nov-Dec)",
+      "themes": "Gnomes, Santa, reindeer, snowflake ornaments",
+      "pricing": "Ornaments $6-$14, sets/garlands $18-$35",
+      "productionTip": "Strongest single seasonal category across all sources reviewed"
+    },
+    {
+      "season": "Valentine's Day (Jan-Feb)",
+      "themes": "Mini hearts, small gift-sized pieces",
+      "pricing": "Small/customizable, often bundled as quick gifts",
+      "productionTip": "Ideal for limited-quantity/quick-turnaround releases"
+    },
+    {
+      "season": "Easter/Spring (Mar-Apr)",
+      "themes": "Bunnies, eggs, pastel palettes",
+      "pricing": "$8-$18",
+      "productionTip": "Aligns with WonderCon (late March) and FanimeCon (May)"
+    }
+  ],
+  "historicalTimeline": [
+    {
+      "year": "2003",
+      "event": "Amigurumi first breaks out widely in the West",
+      "relevance": "Founding moment of amigurumi as a commercial category outside Japan",
+      "confidence": "High",
+      "source": "en.wikipedia.org/wiki/Amigurumi"
+    },
+    {
+      "year": "2006",
+      "event": "Amigurumi reported among most popular Etsy item categories, selling $10-$100",
+      "relevance": "Pricing from 20 years ago nearly matches current (2026) observed pricing",
+      "confidence": "High",
+      "source": "en.wikipedia.org/wiki/Amigurumi"
+    },
+    {
+      "year": "1960s-70s (recurring)",
+      "event": "Granny square motif originates; periodically revives",
+      "relevance": "Cyclical 'comeback' trend tied to fashion nostalgia waves",
+      "confidence": "Medium",
+      "source": "Craft-industry trend articles"
+    },
+    {
+      "year": "2019",
+      "event": "Baby Yoda/Grogu phenomenon -- 100+ patterns appear within weeks of Mandalorian release; Disney issued cease-and-desist letters to pattern bloggers",
+      "relevance": "Concrete evidence the copyright risk with recognizable IP is not theoretical",
+      "confidence": "High",
+      "source": "KnitHacker, Made From Yarn"
+    },
+    {
+      "year": "2020-2022",
+      "event": "Pandemic lockdown + TikTok algorithm drive a crochet boom, tied to 'Cottagecore' aesthetic",
+      "relevance": "Produced viral single-pattern moments (strawberry/frog bucket hats, 'Harry Styles cardigan')",
+      "confidence": "Medium-high",
+      "source": "Multiple craft/fashion press"
+    },
+    {
+      "year": "2023",
+      "event": "'Welwitschia Goth' aesthetic named on TikTok (roots trace to 2000s-2010s emo-goth/Creepypasta circles)",
+      "relevance": "Closest documented bridge between horror/gothic and crochet specifically",
+      "confidence": "Medium",
+      "source": "Cactusladycreation blog"
+    },
+    {
+      "year": "2024-2026",
+      "event": "Consolidation into: sustainability messaging, adult/collector-driven buying, heavy personalization as premium lever",
+      "relevance": "Current-era baseline",
+      "confidence": "Medium",
+      "source": "Grand View Research, multiple craft blogs"
+    }
+  ],
+  "removablePartsPremium": {
+    "confirmedPricePoint": "$120 for a removable-outfit character plushie (TikTok, corroborated across two searches)",
+    "categoryExists": true,
+    "categoryEvidence": "Active Etsy search categories: 'crochet plushies with clothes', 'crochet plush outfits' -- real listings exist",
+    "publishedMarkupPercent": null,
+    "confidenceNote": "No published industry figure found for markup % -- appears to be seller intuition rather than documented guidance. Reasoning by analogy to Glamacrylics' $300-425 custom dolls and the broader personalization-as-premium trend is inference, not sourced fact."
+  },
+  "clearingOldInventory": [
+    {
+      "strategy": "Mystery/grab bags",
+      "howItWorks": "Bundle unsold/overstock pieces into a sealed surprise bag",
+      "pricing": "$10-$15 most common",
+      "note": "Repeatedly described as 'always a best seller' on TikTok -- documented as effective specifically in this market, not just generic advice"
+    },
+    {
+      "strategy": "Themed mystery bags (dark fantasy relevant)",
+      "howItWorks": "Same as above but themed rather than fully random",
+      "pricing": "$10-$15",
+      "note": "Real precedent: a 'horror mystery bag' (mini Freddy/Michael/Jason figures) marketed with #comiccon tags. Directly applicable to a Cryptid Mystery Bag sold at Sinister Creature Con / Sinister Halloween Con."
+    },
+    {
+      "strategy": "Flash sales",
+      "howItWorks": "Short (48hr), infrequent sales, ~2x/year",
+      "pricing": "No fixed %",
+      "note": "Frequent discounting erodes perceived value and trains customers to wait for sales"
+    },
+    {
+      "strategy": "Bundling with bestsellers",
+      "howItWorks": "Pair a slow mover with a popular item at a bundled discount",
+      "pricing": "General guidance, no crochet-specific %",
+      "note": "Frames as 'more for less' rather than 'this didn't sell'"
+    },
+    {
+      "strategy": "Weekly rotating discount",
+      "howItWorks": "Pick specific items each week for an extra discount instead of a blanket clearance sale",
+      "pricing": "General guidance",
+      "note": "Avoids the psychological 'clearance' framing that can devalue the brand"
+    },
+    {
+      "strategy": "Price anchoring",
+      "howItWorks": "Show original price crossed out next to discounted price",
+      "pricing": "General guidance",
+      "note": "Makes the discount feel more substantial"
+    },
+    {
+      "strategy": "Mercari offload",
+      "howItWorks": "List old/overstock inventory on Mercari rather than your primary shop",
+      "pricing": "Flat 10% seller fee, no separate processing fee; price ~10-15% above minimum acceptable since buyers make offers",
+      "note": "Moves old stock without affecting your main storefront's pricing perception"
+    },
+    {
+      "strategy": "Local/in-person clearance events",
+      "howItWorks": "School/church craft fairs, local markets",
+      "pricing": "Table cost $20-$60",
+      "note": "Lower-stakes way to move older stock without public online discounting"
+    },
+    {
+      "strategy": "Donation (last resort)",
+      "howItWorks": "Donate unsold inventory for a tax deduction",
+      "pricing": "Deduction value depends on item",
+      "note": "Final option once other methods are exhausted"
+    }
+  ],
+  "wixPricing": [
+    {
+      "plan": "Light",
+      "monthlyCostAnnualBilling": "$17",
+      "ecommerceEnabled": false
+    },
+    {
+      "plan": "Core",
+      "monthlyCostAnnualBilling": "$29",
+      "ecommerceEnabled": true,
+      "note": "Minimum tier needed to sell products"
+    },
+    {
+      "plan": "Business",
+      "monthlyCostAnnualBilling": "$39",
+      "ecommerceEnabled": true,
+      "note": "Automated sales tax, advanced shipping"
+    },
+    {
+      "plan": "Business Elite",
+      "monthlyCostAnnualBilling": "$159",
+      "ecommerceEnabled": true,
+      "note": "Overkill for small-mid crochet business per most reviewers"
+    }
+  ],
+  "copyrightNotes": {
+    "generallySafe": [
+      "Generic/archetypal creatures not tied to specific franchise designs",
+      "Nature/animals/plants/food items",
+      "Public domain characters (Sherlock Holmes, pre-1929 works, original 1926 Winnie-the-Pooh, Tenniel's Alice in Wonderland)",
+      "Original designs inspired by genres rather than specific IP"
+    ],
+    "lovecraftSpecific": "Most Lovecraft stories are public domain in the US (never renewed, or pre-1929). The Cthulhu Mythos was an intentionally 'open' shared universe from the start. Generic tentacled elder-god designs based on text descriptions are safe; copying a specific illustrator's or game company's distinctive rendering is not.",
+    "riskEvidence": "2019 Baby Yoda craze produced real Disney cease-and-desist letters to crochet pattern bloggers -- concrete evidence recognizable-IP risk is not theoretical."
+  },
+  "conventionRankings": {
+    "researchDate": "2026-07-10",
+    "currentInventoryTopPicks": [
+      {
+        "name": "Sac Comic-Con",
+        "reason": "$175 flat, no jury mentioned -- cheapest confirmed table cost on the list."
+      },
+      {
+        "name": "SacAnime",
+        "reason": "~$200/table with no jury noted, and a large-scale audience -- strong $-to-audience ratio if the figure holds."
+      },
+      {
+        "name": "FanimeCon",
+        "reason": "$300 is moderate; juried on craft quality rather than exclusivity, with 27,500+ attendees."
+      },
+      {
+        "name": "L.A. Comic Con",
+        "reason": "Price unconfirmed, but explicitly plushie-friendly, approval-based (not a hard jury), and hit a record 131,000 attendees in 2025."
+      },
+      {
+        "name": "StocktonCon Winter",
+        "reason": "Small-scale, low-competition regional show -- a low-risk way to test new stock."
+      }
+    ],
+    "darkFantasyTopPicks": [
+      {
+        "name": "Sinister Creature Con",
+        "reason": "Purpose-built horror audience, no sign of a steep table fee -- just needs price confirmation via their application form."
+      },
+      {
+        "name": "Sinister Halloween Con",
+        "reason": "Fall sibling to Sinister Creature Con, same curated horror-vendor audience timed for Halloween."
+      },
+      {
+        "name": "Northern California Renaissance Faire",
+        "reason": "Huge audience (150,000+/season) and strong dark-fantasy fit, but the 15%-of-sales commission model means cost scales with how well you sell."
+      },
+      {
+        "name": "Long Beach Comic Con",
+        "reason": "Branded explicitly as a Comic & Horror Con with a strong Artist Alley reputation; historical pricing (~$300) was moderate."
+      },
+      {
+        "name": "Central Coast Renaissance Festival",
+        "reason": "Smaller and juried, so less competition once accepted -- a good complementary venue to the larger Ren Faires."
+      },
+      {
+        "name": "Original Renaissance Pleasure Faire",
+        "reason": "Largest SoCal dark-fantasy audience (200,000+), but the curated no-published-price application makes it the highest-effort entry -- best pursued once the dark-fantasy line exists as a body of work to submit as photos."
+      }
+    ],
+    "caveat": "Most convention vendor pricing is gated behind an application step rather than posted publicly, even for major events (Anime Expo, SDCC, WonderCon, L.A. Comic Con). Treat \"not publicly posted\" entries as needing direct outreach before budgeting."
+  },
+  "productDemand": {
+    "researchDate": "2026-07-10",
+    "bestsellers": [
+      {
+        "finding": "Small/quick amigurumi under ~4in (mushrooms, mini bears, strawberries, ghosts, donuts) consistently outsell larger, detailed pieces at in-person events -- shoppers buy them on impulse.",
+        "confidence": "Medium",
+        "source": "crewchet.com; caabcrochet.com"
+      },
+      {
+        "finding": "Keychains/mini charms are fast-selling, low-yarn, low-risk items that often serve as a booth 'entry point' drawing buyers in before bigger purchases.",
+        "confidence": "Medium",
+        "source": "crewchet.com; secretyarnery.com; accio.com"
+      },
+      {
+        "finding": "Animal designs (octopus, axolotl, cats, dogs, bears, turtles) and food-shaped items are named most often as reliable bestsellers, ahead of niche fandom pieces.",
+        "confidence": "Medium",
+        "source": "accio.com; caabcrochet.com; crewchet.com"
+      },
+      {
+        "finding": "Medium-size plushies ($20-$50) are the format kids gravitate to for play value (e.g. snuggle dragons), distinct from keychains bought as impulse/gift items.",
+        "confidence": "Low",
+        "source": "Ribblr community thread"
+      },
+      {
+        "finding": "Sellers explicitly prioritize fast-to-make items over highly detailed pieces for craft-fair viability -- a supply-side signal (seller convenience), not direct proof of lower demand for large pieces.",
+        "confidence": "Medium (supply-side signal only)",
+        "source": "littleworldofwhimsy.com"
+      }
+    ],
+    "priceRange": [
+      {
+        "finding": "$10-$25 is repeatedly identified as the core impulse-buy range at craft fairs/conventions for keychains, small plushies, and similar giftable items.",
+        "confidence": "Medium-High",
+        "source": "marcymade.co; crewchet.com"
+      },
+      {
+        "finding": "One source frames $25-$50 (not $20) as where most sales likely live, reserving $10-$20 for the smallest impulse items only.",
+        "confidence": "Low-Medium",
+        "source": "thecraftmap.com"
+      },
+      {
+        "finding": "Two-tier pricing pattern reported: mini amigurumi/keychains cluster at $8-$18; medium plushies with safety eyes cluster at $20-$35.",
+        "confidence": "Medium",
+        "source": "secretyarnery.com; crewchet.com"
+      },
+      {
+        "finding": "'$20 and under' is explicitly and repeatedly used as vendor shorthand for the psychological impulse-buy threshold, though no hard sales data was cited by any source.",
+        "confidence": "Medium",
+        "source": "marcymade.co; crewchet.com"
+      },
+      {
+        "finding": "New/beginner vendors are advised to start at $5-$10/item before working up to a $20-25/hour-of-labor pricing target used by more experienced sellers.",
+        "confidence": "Low-Medium",
+        "source": "littleworldofwhimsy.com"
+      }
+    ],
+    "bundles": [
+      {
+        "finding": "'3 for $X' bundle pricing (e.g. 3-for-$18, 3-for-$25) is recommended across multiple sources as a way to move small plushies/keychains faster and pair slow movers with bestsellers.",
+        "confidence": "Medium-High",
+        "source": "crewchet.com; artandcraftexpo.com; mallorywhitfield.com"
+      },
+      {
+        "finding": "'Buy 2 get 1 free' deals are cited as a top performer by one vendor account -- but in jewelry, not plushies, so treat as an adjacent-craft signal only.",
+        "confidence": "Low",
+        "source": "mallorywhitfield.com"
+      },
+      {
+        "finding": "Mystery bags/blind-box plushies are a well-established, actively sold format on Etsy specifically for crochet plushies, typically bundling 2-3 plushies to meet or exceed the paid value.",
+        "confidence": "Medium",
+        "source": "Etsy mystery bag market listings"
+      },
+      {
+        "finding": "Mystery/grab bags appear tied to TikTok 'gacha'/'lucky box' trends -- popularity may be partly social-media-aesthetic-driven rather than pure value-seeking.",
+        "confidence": "Low",
+        "source": "Etsy listing tags (inferred)"
+      },
+      {
+        "finding": "No source quantifies bundling as a percentage of total sales for finished plushies -- only qualitative \"bundles increase average transaction size\" claims exist.",
+        "confidence": "Data gap",
+        "source": "N/A"
+      }
+    ],
+    "gaps": [
+      {
+        "finding": "Skin-tone yarn availability is a documented pain point among crafters, prompting creation of a dedicated 8-shade skin-tone yarn line -- maker-side evidence is stronger than confirmed end-customer demand.",
+        "confidence": "Medium",
+        "source": "boingboing.net; onceuponacheerio.com"
+      },
+      {
+        "finding": "Custom/made-to-order plushies show demand signals via active seller waitlists (explicit 'There is a Waitlist!' listings), suggesting custom capacity is a bottleneck for at least some shops.",
+        "confidence": "Low-Medium",
+        "source": "Etsy listing example"
+      },
+      {
+        "finding": "Allergen/hypoallergenic material guidance appears mainly as seller-side safety advice, not documented buyer complaints -- currently a data gap, not a confirmed underserved niche.",
+        "confidence": "Low / unconfirmed",
+        "source": "interweave.com"
+      },
+      {
+        "finding": "No direct evidence found on size-option gaps, LGBTQ+ representation, or adult/collector positioning via Reddit/TikTok searches -- flagged as a genuine research gap, not a \"no demand\" finding.",
+        "confidence": "Data gap",
+        "source": "N/A -- recommend a manual Reddit/TikTok search pass if decision-critical"
+      }
+    ]
+  },
+  "materialsSuppliers": {
+    "researchDate": "2026-07-10",
+    "yarnBrands": [
+      {
+        "finding": "Chenille/blanket-style yarn is the dominant category for sellable plushies; in a 7-yarn side-by-side maker test, Hobbii Baby Snuggle rated softest and easiest to work with, while Bernat Blanket rated firmest (best for shape retention).",
+        "confidence": "High",
+        "source": "roseandlilyamigurumi.com/p/yarn-comparisons.html"
+      },
+      {
+        "finding": "Premier Parfait Chunky and Hobbii Baby Snuggle are treated as near-interchangeable substitutes by plushie makers on TikTok (same thickness, overlapping colors) -- useful backup when one is out of stock.",
+        "confidence": "Medium",
+        "source": "TikTok @cubiecrochet; Threads @yarngles"
+      },
+      {
+        "finding": "Among standard acrylics, Red Heart Super Saver (cheapest, widest colors, scratchy), Caron Simply Soft (softer but splitty), and Hobby Lobby I Love This Yarn recur most in Reddit comparisons -- consensus is all three work and choice is preference-driven.",
+        "confidence": "Medium",
+        "source": "r/crochet community synthesis"
+      },
+      {
+        "finding": "WeCrochet/Knit Picks Brava (worsted/sport) is a frequently blogged best-value amigurumi acrylic: soft, durable, machine-washable, huge palette including skin tones, ~$2.49-2.99/skein.",
+        "confidence": "High",
+        "source": "littleworldofwhimsy.com; jenhayescreations.com/brava-yarn-review"
+      },
+      {
+        "finding": "For cotton, Paintbox Cotton DK (~$2-3/skein, big palette) appears in best-amigurumi-yarn roundups; no strong amigurumi-specific ranking found for Lion Brand 24/7 Cotton or Scheepjes Catona.",
+        "confidence": "Low",
+        "source": "littleworldofwhimsy.com"
+      }
+    ],
+    "yarnPricing": [
+      {
+        "finding": "Bernat Blanket (10.5oz/220yd): Walmart 6-pack listed at $19.99 (~$3.33/skein, ~1.5 cents/yd) but other Walmart listings show ~$9.50/skein -- pricing varies wildly by listing; multipacks are generally the cheapest route. Verify at checkout.",
+        "confidence": "Medium",
+        "source": "walmart.com (July 2026, conflicting listings)"
+      },
+      {
+        "finding": "Premier Parfait Chunky (3.5oz/131yd): $5.49/skein direct from Premier (~4.2 cents/yd); Michaels marketplace listings run $9.78-14.34 -- buy direct or Walmart, not Michaels marketplace.",
+        "confidence": "High",
+        "source": "premieryarns.com/products/parfchunky (July 2026)"
+      },
+      {
+        "finding": "Hobbii Honey Bunny: $9.60/skein at 1-3 units with quantity discounts at higher counts; Hobbii Baby Snuggle ~$8.80/skein (2024 observation).",
+        "confidence": "Medium",
+        "source": "hobbii.com (July 2026 / 2024)"
+      },
+      {
+        "finding": "WeCrochet Brava Worsted: $2.49/skein for 218yd (~1.1 cents/yd) -- among the cheapest quality acrylics available.",
+        "confidence": "High",
+        "source": "crochet.com (2024-2026)"
+      },
+      {
+        "finding": "Joann is gone: all ~790 stores liquidated by May 30, 2025. Michaels acquired Joann's IP and private labels (e.g. Big Twist). Practical channels now: Michaels, Hobby Lobby, Walmart, and direct online (Yarnspirations, Hobbii, Crochet.com).",
+        "confidence": "High",
+        "source": "npr.org (Feb 2025); apartmenttherapy.com"
+      }
+    ],
+    "qualityReputation": [
+      {
+        "finding": "Bernat Blanket (current yarn): praised for firmness/shape retention, but documented complaints of skein-to-skein color-run and tension inconsistency even within the same dye lot, plus a long official discontinued-shades list (9 standard + 58 Blanket Big) -- a real color-continuity risk for a fixed product line.",
+        "confidence": "High",
+        "source": "knittingparadise.com forum; yarnspirations.com discontinued-shades page"
+      },
+      {
+        "finding": "Chenille/velvet yarns generally (incl. Bernat Velvet): worming (loops popping out of finished fabric) and shedding are the most-cited issues; standard fix is smaller hooks and tighter tension. Yarn ends are prone to wiggling loose in amigurumi.",
+        "confidence": "High",
+        "source": "hearthookhome.com (widely corroborated)"
+      },
+      {
+        "finding": "Caron Simply Soft is frequently criticized for splitting during tight amigurumi stitches; Red Heart Super Saver is durable and cheap but scratchy for a premium plushie feel.",
+        "confidence": "Medium",
+        "source": "Reddit/forum synthesis (no single canonical thread)"
+      },
+      {
+        "finding": "Hobbii Baby Snuggle/Honey Bunny praised as softest with strong cores; one maker warns Hobbii's newer 'Toucan' chenille has a weaker inner thread (single-source anecdote).",
+        "confidence": "Medium",
+        "source": "Threads @yarngles"
+      },
+      {
+        "finding": "WeCrochet Brava reviewers report it 'never feels cheap' with good stitch definition and durability -- few complaints found.",
+        "confidence": "Medium",
+        "source": "jenhayescreations.com/brava-yarn-review"
+      }
+    ],
+    "bulkWholesale": [
+      {
+        "finding": "Yarnspirations has a formal wholesale program (contact form) plus retail tiered promos ('Buy 3-4, get 10% off') and clearance up to 60% -- the most direct wholesale path for Bernat Blanket.",
+        "confidence": "High",
+        "source": "yarnspirations.com/pages/wholesale-inquiries"
+      },
+      {
+        "finding": "Hobbii has no published wholesale program but offers built-in quantity discounts (e.g. Honey Bunny cheaper at 4+ skeins), color-pack bundles, 50%-off sale collections, and free US shipping at $75+.",
+        "confidence": "High",
+        "source": "hobbii.com"
+      },
+      {
+        "finding": "Walmart multipacks (6- and 10-pack Bernat Blanket) are effectively the cheapest bulk channel without a wholesale account, though listing prices are inconsistent.",
+        "confidence": "Medium",
+        "source": "business.walmart.com"
+      },
+      {
+        "finding": "WeCrochet Brava functions as a de facto bulk value line (~1.1 cents/yd retail, no minimums). True wholesale minimum-order details for Hobbii or LoveCrafts: not found.",
+        "confidence": "Medium",
+        "source": "crochet.com"
+      }
+    ],
+    "eyesAndStuffing": [
+      {
+        "finding": "6060eyes.com (18+ year amigurumi specialist) sells bulk safety-eye packs (e.g. 25 pairs of 6mm solid black, typical small packs ~$1.50-2.85), US child-safety compliant. Note: their Etsy store was suspended March 2024 -- they now sell only via their own site.",
+        "confidence": "High",
+        "source": "6060eyes.com"
+      },
+      {
+        "finding": "GlassEyesOnline is a wholesale-oriented supplier of safety eyes/noses in all sizes (listings from ~$6) -- good for odd sizes and animal noses.",
+        "confidence": "Medium",
+        "source": "glasseyesonline.com"
+      },
+      {
+        "finding": "Fairfield Poly-Fil Premium 10lb box is the standard business-scale stuffing; reviewers cite Walmart as ~20% cheaper than other channels (eBay listing ~$74.70, 2025-26; Walmart typically notably less -- exact current price unconfirmed).",
+        "confidence": "Medium",
+        "source": "shop.fairfieldworld.com; walmart.com"
+      }
+    ]
+  },
+  "businessSetup": {
+    "researchDate": "2026-07-10",
+    "etsyFees": [
+      {
+        "finding": "Listing fee is $0.20 per listing, charged at creation and each 4-month renewal whether it sells or not.",
+        "confidence": "High",
+        "source": "craftybase.com/blog/the-complete-guide-to-etsy-fees (2026)"
+      },
+      {
+        "finding": "Transaction fee is 6.5% of total order value including shipping/gift wrap; US payment processing (Etsy Payments) adds 3% + $0.25 per order.",
+        "confidence": "High",
+        "source": "sellertoolshq.com; edesk.com (2026)"
+      },
+      {
+        "finding": "Offsite Ads: 15% on ad-attributed orders if trailing-12-month sales are under $10,000 (can opt out); drops to 12% but becomes mandatory once you cross $10,000.",
+        "confidence": "High",
+        "source": "craftybase.com (2026)"
+      },
+      {
+        "finding": "One-time shop setup fee of roughly $15-$29 for new shops (introduced Sept 2024). No US Regulatory Operating Fee exists (that fee applies only in certain countries, e.g. Canada 1.15%, UK 0.32%).",
+        "confidence": "Medium",
+        "source": "craftybase.com (2026; setup-fee range varies by source)"
+      },
+      {
+        "finding": "Illustrative $25 plushie sale (free shipping, no offsite ad): $0.20 listing + $1.63 transaction + $1.00 processing = $2.83 (~11.3% all-in). If offsite-ad-attributed at 15%, add $3.75 for $6.58 total (~26.3%).",
+        "confidence": "High",
+        "source": "Arithmetic on verified 2026 rates; Etsy official fee page returned 403 so figures rest on consistent secondary sources"
+      }
+    ],
+    "paymentProcessing": [
+      {
+        "finding": "Square: 2.6% + $0.15 per tap/dip/swipe on the free plan (raised from +$0.10 in the Oct 2025 pricing overhaul -- older sources showing 10 cents are outdated); contactless+chip reader $59; no monthly fee.",
+        "confidence": "High",
+        "source": "posusa.com; squareup.com (2026)"
+      },
+      {
+        "finding": "PayPal Zettle (now 'PayPal POS'): 2.29% + $0.09 in-person -- cheapest per-transaction card rate of the group; first reader $29 ($79 after); no monthly fee.",
+        "confidence": "High",
+        "source": "paypal.com/us/business/pos-system/pricing (2026)"
+      },
+      {
+        "finding": "Venmo business profile: 1.9% + $0.10 on standard in-app QR payments -- cheapest option overall. Tap to Pay card rates conflict across sources (2.29% + $0.10 vs 2.9% + $0.09) -- verify in-app.",
+        "confidence": "High (QR rate); Low (Tap to Pay rate)",
+        "source": "help.venmo.com (2026)"
+      },
+      {
+        "finding": "SumUp US: 2.6% + $0.10 in-person, reader ~$39-$54, no monthly fee (one craft-fair guide cites 2.75% -- US pricing pages vary).",
+        "confidence": "Medium",
+        "source": "sumup.com (2026)"
+      },
+      {
+        "finding": "Shopify POS is generally not worth it for a fair-only seller -- competitive in-person rates require a paid plan (~$128/month on Basic with POS Pro); only makes sense with an existing Shopify store.",
+        "confidence": "Medium",
+        "source": "letstalkshop.com (2026)"
+      },
+      {
+        "finding": "Square is the most-used reader among handmade sellers per craft-fair guides (free app, easy setup, inventory tracking, next-day deposits); in practice most vendors offer Square/Zettle plus a Venmo QR code.",
+        "confidence": "High",
+        "source": "kurvpay.com; craftybase.com (2026)"
+      }
+    ],
+    "boothStartup": [
+      {
+        "finding": "Indoor artist-alley minimal kit (floor-length tablecloth, small risers, price signs, card reader) can be done for under ~$100 excluding banner; a vertical banner and gridwall panels are the usual first upgrades.",
+        "confidence": "Medium",
+        "source": "mrkessell.com; artistbooths.com (anecdotal budgets)"
+      },
+      {
+        "finding": "Consensus artist-alley checklist: floor-length table cover (hides storage), gridwall/wire displays for vertical space, large clear price signage, name banner, business cards, cash box, battery lighting.",
+        "confidence": "High",
+        "source": "printkeg.com/blogs/tips/artist-alley-convention-checklist"
+      },
+      {
+        "finding": "Outdoor 10x10 pop-up canopy: budget models ~$80-$200, vendor-grade commercial frames $200-$400, custom-printed $400-$1,000+; weights add $50-$100.",
+        "confidence": "High",
+        "source": "mastercanopy.com; getboothly.com (2026)"
+      },
+      {
+        "finding": "Plan roughly 40lb of weight per canopy leg since staking is usually banned (some events require 25lb/leg); sidewalls are a recommended add-on for wind/sun control.",
+        "confidence": "High (recommendation); the 40lb figure is one guide's rule of thumb",
+        "source": "craftprofessional.com/10-x-10-canopy.html"
+      },
+      {
+        "finding": "Rough startup totals: indoor table budget setup ~$100-$250, mid-tier with banner + gridwall + lighting ~$300-$600; outdoor Ren-Faire booth budget ~$350-$600, mid-tier ~$800-$1,500. Ranges assembled from component prices, not a single sourced total.",
+        "confidence": "Medium",
+        "source": "getboothly.com synthesis"
+      },
+      {
+        "finding": "Budget the booth fee itself at +20-30% over the headline fee for true event cost (parking, electricity, insurance riders).",
+        "confidence": "Medium",
+        "source": "thecraftmap.com (2026)"
+      }
+    ],
+    "pricingFormulas": [
+      {
+        "finding": "Formula A (most-cited for crochet): Price = (Materials + Time x Hourly Rate) x 2.0-2.5 markup.",
+        "confidence": "High",
+        "source": "craftstrack.app/blog/how-to-price-crochet-items"
+      },
+      {
+        "finding": "Formula B (classic wholesale/retail): (Materials + Labor + Overhead) = base; base x2 = wholesale; wholesale x2 = retail (i.e. cost x4 retail). Overhead commonly estimated at 15-25% of materials + labor.",
+        "confidence": "High",
+        "source": "madeurban.com; craftybase.com"
+      },
+      {
+        "finding": "Formula C (Made Urban variant): (Materials x 2) + Labor + Overhead = wholesale, x2 = retail.",
+        "confidence": "Medium",
+        "source": "letstalkshop.com"
+      },
+      {
+        "finding": "Hourly-rate benchmark corroborated: $15-25/hr general floor, $12-15 beginner, $15-25 intermediate, $25-40 advanced; amigurumi-specific guides use $20/hr in worked examples.",
+        "confidence": "High",
+        "source": "craftstrack.app; crochetpreneur.com/pricing-amigurumi"
+      },
+      {
+        "finding": "Known amigurumi tension: full formulas on slow-to-make plushies produce prices the market resists (a worked example prices an 8-hour elephant at $195). A $25 plushie only supports ~30-45 min of paid labor under Formula A -- guides recommend faster patterns or accepting some unpaid labor rather than lowering the hourly rate.",
+        "confidence": "High",
+        "source": "crochetpreneur.com/pricing-amigurumi"
+      }
+    ],
+    "marketingChannels": [
+      {
+        "finding": "Hard, corroborated data comparing TikTok vs Instagram vs Etsy-search conversion for crochet plushie sellers specifically does not exist -- the evidence base is almost entirely anecdote.",
+        "confidence": "High (that this is the state of evidence)",
+        "source": "Research synthesis, July 2026"
+      },
+      {
+        "finding": "Viral-TikTok anecdotes exist (2M+ views producing 400+ orders; 50k followers in 3 months leading to sell-out drops) but read like content-mill composites with no named/verifiable shops -- treat as illustrative only.",
+        "confidence": "Low",
+        "source": "secretyarnery.com"
+      },
+      {
+        "finding": "A genuine primary-source testimonial exists: a January 2026 YouTube '2025 Crochet Recap' where one plushie seller breaks down markets-vs-Etsy numbers (plushies sold, fees compared) -- worth watching directly.",
+        "confidence": "Medium (single seller, primary source)",
+        "source": "youtube.com/watch?v=LmFAa_Ectqc"
+      },
+      {
+        "finding": "Craft-business guides consistently report in-person craft fairs/markets as the strongest-converting channel for plushies (buyers can touch the item, no shipping friction), with Etsy as year-round baseline and social media as the discovery layer feeding both.",
+        "confidence": "Medium (consistent advice, not measured data)",
+        "source": "secretyarnery.com"
+      },
+      {
+        "finding": "TikTok-to-Etsy crossover is observable: Etsy hosts dedicated 'viral TikTok crochet' market pages, indicating TikTok trends measurably drive Etsy search demand for plushies.",
+        "confidence": "Medium (indirect but verifiable signal)",
+        "source": "etsy.com/market/crochet_tiktok_viral"
+      }
+    ],
+    "legal": [
+      {
+        "finding": "CDTFA seller's permit is required to sell taxable goods at CA conventions/craft fairs: a free temporary permit covers selling under 90 days, but doing 3+ events in 12 months requires a regular (permanent) permit -- also free. Obtain up to 90 days before the event via CDTFA online, registering each event location.",
+        "confidence": "High",
+        "source": "cdtfa.ca.gov/industry/temporary-sellers; CDTFA Pub 111"
+      },
+      {
+        "finding": "Event operators are required to verify vendor permits (typically via form CDTFA-410-D), and most convention vendor applications ask for your permit number.",
+        "confidence": "High",
+        "source": "cdtfa.ca.gov/formspubs/pub111/sellers-and-vendors.htm"
+      },
+      {
+        "finding": "Sales tax rate is the rate where the event is held: 7.25% statewide base plus district taxes (LA County venues run ~9.5%+). The vendor collects and remits on their own CDTFA return -- conventions do not remit for you. Use the CDTFA address-based rate lookup per venue.",
+        "confidence": "High",
+        "source": "cdtfa.ca.gov district-tax page; taxjar.com festival guide"
+      },
+      {
+        "finding": "Liability insurance: Ren faires and larger conventions commonly require a certificate of insurance naming the event/venue as additional insured; small comic cons often do not. Typical craft-vendor cost: ACT Insurance from ~$49/event or ~$279/year; FLIP from ~$299/year (industry range $40-60/event, $200-400/year).",
+        "confidence": "Medium (which cons mandate it); High (pricing)",
+        "source": "actinsurance.com; insurancecanopy.com"
+      },
+      {
+        "finding": "CPSIA: handmade plushies marketed to children 12-and-under are 'children's products' requiring third-party testing at a CPSC-accepted lab (ASTM F963), a Children's Product Certificate, and a permanent tracking label.",
+        "confidence": "High",
+        "source": "cpsc.gov Toy Safety business education"
+      },
+      {
+        "finding": "The CPSC Small Batch Manufacturer registry (free, annual; under ~$1.48M revenue and 7,500 units) waives most third-party testing but NOT lead-in-substrate rules -- and a CPC and tracking label are still required.",
+        "confidence": "High",
+        "source": "cpsc.gov Small Batch Manufacturers page"
+      },
+      {
+        "finding": "A 'not intended for children under 3' tag is NOT a reliable shield: CPSC classifies by overall design, marketing, and appeal -- a cute plushie displayed at a con will likely be deemed a children's product regardless of disclaimer. Adult/collector positioning only works if design and marketing genuinely target adults.",
+        "confidence": "High",
+        "source": "16 CFR 1200.2 (ecfr.gov)"
+      },
+      {
+        "finding": "Several states require stuffed-article 'law tags'/registry numbers (e.g. Pennsylvania URN, honored by reciprocity in other states).",
+        "confidence": "Medium",
+        "source": "craftybase.com CPSC compliance guide"
+      }
+    ]
+  }
+}
