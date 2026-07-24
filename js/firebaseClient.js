@@ -32,9 +32,21 @@ export function loadFirebase() {
     import(`${CDN}/firebase-firestore.js`),
   ]).then(([{ initializeApp }, authApi, firestoreApi]) => {
     const app = initializeApp(firebaseConfig);
+    // Plain getFirestore() only caches in memory -- writes made while
+    // offline are lost if the tab closes/reloads before reconnecting.
+    // initializeFirestore with persistentLocalCache backs that cache with
+    // IndexedDB instead, so queued writes (and the last-read data) survive
+    // a closed tab/killed browser/reload and sync once back online. Single-
+    // tab manager is fine here -- this is a one-person tool, not a
+    // multi-tab app.
+    const db = firestoreApi.initializeFirestore(app, {
+      localCache: firestoreApi.persistentLocalCache({
+        tabManager: firestoreApi.persistentSingleTabManager(),
+      }),
+    });
     return {
       auth: authApi.getAuth(app),
-      db: firestoreApi.getFirestore(app),
+      db,
       authApi,
       firestoreApi,
     };
