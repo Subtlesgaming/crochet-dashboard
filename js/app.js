@@ -35,11 +35,16 @@ const ROUTES = {
   '#/sales': { label: 'Sales Log', view: salesLogView },
 };
 
+// Standalone top-level links (no group label) -- these get the more
+// prominent, larger nav-link styling instead of the smaller grouped-item
+// style, so Inventory/Sales Log read as top-priority rather than tucked
+// under a collapsible section.
+const TOP_LINKS = ['#/home', '#/gameplan', '#/inventory', '#/sales'];
+
 const NAV_GROUPS = [
   { label: 'Sell', routes: ['#/conventions', '#/competitors', '#/clearance'] },
   { label: 'Research', routes: ['#/demand', '#/materials', '#/business', '#/timeline'] },
   { label: 'Reference', routes: ['#/shipping', '#/patterns', '#/seasonal', '#/copyright'] },
-  { label: 'Tracker', routes: ['#/inventory', '#/sales'] },
 ];
 
 const navEl = document.getElementById('sidebar-nav');
@@ -66,7 +71,12 @@ function renderNav() {
     </div>
   `).join('');
 
-  navEl.innerHTML = `<a href="#/home" class="nav-link" data-route="#/home">Home</a><a href="#/gameplan" class="nav-link nav-link-gameplan" data-route="#/gameplan">${escapeHtml(ROUTES['#/gameplan'].label)}</a>${groupsHtml}`;
+  const topLinksHtml = TOP_LINKS.map((route) => {
+    const gameplanClass = route === '#/gameplan' ? ' nav-link-gameplan' : '';
+    return `<a href="${route}" class="nav-link${gameplanClass}" data-route="${route}">${escapeHtml(ROUTES[route].label)}</a>`;
+  }).join('');
+
+  navEl.innerHTML = `${topLinksHtml}${groupsHtml}`;
 }
 
 function setActiveNav(route) {
