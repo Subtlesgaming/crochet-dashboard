@@ -14,10 +14,6 @@ import * as seasonalView from './views/seasonal.js';
 import * as timelineView from './views/timeline.js';
 import * as clearanceView from './views/clearance.js';
 import * as copyrightView from './views/copyright.js';
-import * as inventoryView from './views/inventory.js';
-import * as salesLogView from './views/salesLog.js';
-import { renderLogin } from './views/login.js';
-import { getCurrentUser, onAuthChange } from './trackerAuth.js';
 
 const ROUTES = {
   '#/home': { label: 'Home', view: homeView },
@@ -33,31 +29,18 @@ const ROUTES = {
   '#/patterns': { label: 'Digital Patterns', view: patternsView },
   '#/seasonal': { label: 'Seasonal Cycle', view: seasonalView },
   '#/copyright': { label: 'Copyright', view: copyrightView },
-  '#/inventory': { label: 'Inventory', view: inventoryView },
-  '#/sales': { label: 'Sales Log', view: salesLogView },
 };
 
 // Standalone top-level links (no group label) -- these get the more
 // prominent, larger nav-link styling instead of the smaller grouped-item
-// style, so Inventory/Sales Log read as top-priority rather than tucked
-// under a collapsible section.
-const TOP_LINKS = ['#/home', '#/gameplan', '#/inventory', '#/sales'];
+// style.
+const TOP_LINKS = ['#/home', '#/gameplan'];
 
 const NAV_GROUPS = [
   { label: 'Sell', routes: ['#/conventions', '#/competitors', '#/clearance'] },
   { label: 'Research', routes: ['#/demand', '#/materials', '#/business', '#/timeline'] },
   { label: 'Reference', routes: ['#/shipping', '#/patterns', '#/seasonal', '#/copyright'] },
 ];
-
-// Firebase Auth's session/state resolution never fires under file:// (confirmed
-// by isolated testing: every setup step succeeds except onAuthStateChanged's
-// callback, which just never runs, even after 20+ seconds) -- so the offline
-// single-file build can't use the login gate at all. It skips the gate
-// entirely except for the two Tracker pages, which can't work offline
-// regardless of protocol (no live backend to talk to).
-const isFileProtocol = window.location.protocol === 'file:';
-const OFFLINE_UNAVAILABLE_ROUTES = ['#/inventory', '#/sales'];
-const LIVE_SITE_URL = 'https://subtlesgaming.github.io/crochet-dashboard/';
 
 const navEl = document.getElementById('sidebar-nav');
 const contentEl = document.getElementById('content');
@@ -73,8 +56,6 @@ let dashboardData = null;
 let searchIdx = null;
 let searchResultsList = [];
 let activeIndex = -1;
-let activeView = null;
-let authReady = false;
 
 function renderNav() {
   const groupsHtml = NAV_GROUPS.map((group) => `
@@ -107,69 +88,17 @@ function closeMobileNav() {
   navToggleEl.setAttribute('aria-expanded', 'false');
 }
 
-function renderRoute(route) {
-  document.body.classList.remove('gate-active');
-  setActiveNav(route);
-  activeView = ROUTES[route].view;
-  contentEl.innerHTML = '';
-  activeView.render(contentEl, dashboardData);
-  contentEl.scrollIntoView({ behavior: 'instant', block: 'start' });
-  closeMobileNav();
-}
-
-function renderOfflineUnavailable(route) {
-  document.body.classList.remove('gate-active');
-  setActiveNav(route);
-  contentEl.innerHTML = `
-    <h1>${escapeHtml(ROUTES[route].label)}</h1>
-    <section class="panel panel-warning">
-      <h2 class="warning-heading">Not available in the offline copy</h2>
-      <p class="card-note">Firebase sign-in needs a live internet connection and doesn't resolve when this
-        dashboard is opened directly from a file -- open the live site instead:
-        <a href="${LIVE_SITE_URL}" target="_blank" rel="noopener">${LIVE_SITE_URL}</a></p>
-    </section>
-  `;
-  closeMobileNav();
-}
-
-/**
- * The whole dashboard sits behind one login gate -- not just the Tracker
- * pages -- since it's meant to be a private site once deployed. This runs
- * before any route's view renders, so no view needs its own auth check.
- *
- * Exception: the offline single-file build (opened via file://) skips the
- * gate entirely except for the two Tracker routes -- see isFileProtocol above.
- */
 function router() {
   const route = ROUTES[window.location.hash] ? window.location.hash : '#/home';
   if (window.location.hash !== route) {
     window.location.hash = route;
     return;
   }
-
-  if (activeView?.cleanup) activeView.cleanup();
-  activeView = null;
-
-  if (isFileProtocol) {
-    if (OFFLINE_UNAVAILABLE_ROUTES.includes(route)) renderOfflineUnavailable(route);
-    else renderRoute(route);
-    return;
-  }
-
-  if (!authReady) {
-    document.body.classList.add('gate-active');
-    contentEl.innerHTML = '<p class="loading-note">Checking session&hellip;</p>';
-    return;
-  }
-
-  if (!getCurrentUser()) {
-    document.body.classList.add('gate-active');
-    contentEl.innerHTML = '';
-    renderLogin(contentEl);
-    return;
-  }
-
-  renderRoute(route);
+  setActiveNav(route);
+  contentEl.innerHTML = '';
+  ROUTES[route].view.render(contentEl, dashboardData);
+  contentEl.scrollIntoView({ behavior: 'instant', block: 'start' });
+  closeMobileNav();
 }
 
 /* --- Persistent "next event" ticker --- */
@@ -281,12 +210,6 @@ async function init() {
   initSearch();
   renderTicker();
   window.addEventListener('hashchange', router);
-  if (!isFileProtocol) {
-    onAuthChange(() => {
-      authReady = true;
-      router();
-    });
-  }
   router();
 }
 

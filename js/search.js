@@ -19,18 +19,6 @@ export function buildSearchIndex(data) {
     ['strategy', 'report', 'summary', 'starred']
   ));
 
-  index.push(entry(
-    'Tracker', '#/inventory', 'Inventory',
-    'Your stock -- what you\'ve made and how much is left (sign-in required)',
-    ['stock', 'items', 'made']
-  ));
-
-  index.push(entry(
-    'Tracker', '#/sales', 'Sales Log',
-    'What\'s sold, where, and for how much (sign-in required)',
-    ['sales', 'revenue', 'sold']
-  ));
-
   (data.conventions || []).forEach((c) => {
     index.push(entry(
       'Conventions', '#/conventions', c.name,

@@ -53,11 +53,7 @@ fs.writeFileSync(path.join(TMP, 'dataSource.js'), shim);
 console.log('Bundling with esbuild...');
 // npx on Windows resolves to npx.cmd, which requires shell:true to spawn; the
 // args here are all internal, fixed paths (not user input), so this is safe.
-// --external marks the Firebase CDN imports (gstatic URLs) as external --
-// esbuild can't fetch remote URLs, and shouldn't: the Tracker needs a live
-// connection regardless, offline or not, so those imports stay as real
-// runtime <script type="module"> URL imports in the bundle.
-execFileSync('npx', ['--yes', 'esbuild', path.join(TMP, 'app.js'), '--bundle', '--format=iife', '--external:https://*', `--outfile=${path.join(DIST, 'bundle.js')}`], {
+execFileSync('npx', ['--yes', 'esbuild', path.join(TMP, 'app.js'), '--bundle', '--format=iife', `--outfile=${path.join(DIST, 'bundle.js')}`], {
   stdio: 'inherit',
   shell: true,
 });
