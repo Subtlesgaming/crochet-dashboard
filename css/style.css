@@ -1217,7 +1217,8 @@ h3 {
    centers the sign-in form full-viewport instead of showing it inline. */
 body.gate-active .sidebar,
 body.gate-active #mobile-topbar,
-body.gate-active #ticker { display: none; }
+body.gate-active #ticker,
+body.gate-active .site-footer { display: none; }
 
 .login-gate {
   display: flex;
